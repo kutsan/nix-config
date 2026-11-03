@@ -6,8 +6,6 @@
 {{- $user := "kutsan" -}}
 {{- if hasKey . "user" -}}
 {{-   $user = .user -}}
-{{- else if $interactive -}}
-{{-   $user = promptChoice "Select main user" (list "kutsan" "reyhan") -}}
 {{- end -}}
 
 {{- $profile := "personal" -}}
@@ -19,7 +17,6 @@
 
 {{- $emails := dict
 	"kutsan" "me@kutsan.dev"
-	"reyhan" "me@reyhan.dev"
 -}}
 {{- $email := get $emails $user -}}
 

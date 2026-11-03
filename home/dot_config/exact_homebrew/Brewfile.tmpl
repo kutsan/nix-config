@@ -80,12 +80,16 @@ cask "font-symbols-only-nerd-font"
 {{- if eq .profile "personal" }}
 
 # Personal Casks
+cask "audacity"
 cask "backblaze"
 cask "blender"
 cask "discord"
 cask "insta360-link-controller"
+cask "ledger-wallet"
+cask "netnewswire"
 cask "obs"
 cask "orcaslicer"
+cask "skim"
 cask "transmission"
 cask "ukelele"
 
@@ -93,18 +97,6 @@ cask "ukelele"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
-
-{{- if eq .user "kutsan" }}
-cask "audacity"
-cask "ledger-wallet"
-cask "netnewswire"
-cask "skim"
-{{- end }}
-
-{{- if eq .user "reyhan" }}
-cask "affinity"
-cask "clip-studio-paint"
-{{- end }}
 {{- end }}
 
 # TODO: App Store apps are installed manually because `mas` is not working properly right now.
@@ -121,27 +113,20 @@ cask "clip-studio-paint"
 {{- if eq .profile "personal" }}
 
 # Personal App Store Apps
+# mas "Blackmagic Disk Speed Test", id: 425264550
 # mas "Codepoint", id: 6444068649
 # mas "Compressor", id: 6746516157
 # mas "GarageBand", id: 682658836
+# mas "GoodLinks", id: 1474335294
 # mas "HomePass", id: 1330266650
 # mas "Hyperduck", id: 6444667067
 # mas "Logic Pro", id: 1615087040
+# mas "Parachute Backup", id: 6748614170
 # mas "Photomator", id: 1444636541
 # mas "Pixelmator Pro", id: 6746662575
 # mas "Swift Playground", id: 1496833156
+# mas "Tasks", id: 1502903102
 # mas "WhatsApp", id: 310633997
 # mas "iA Writer", id: 775737590
 # mas "iMovie", id: 408981434
-
-{{- if eq .user "kutsan" }}
-# mas "Blackmagic Disk Speed Test", id: 425264550
-# mas "GoodLinks", id: 1474335294
-# mas "Parachute Backup", id: 6748614170
-# mas "Tasks", id: 1502903102
-{{- end }}
-
-{{- if eq .user "reyhan" }}
-# mas "Sketch", id: 1667260533
-{{- end }}
 {{- end }}
