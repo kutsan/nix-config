@@ -11,7 +11,6 @@ shfmt = "3.14.1"
 actionlint = "1.7.12"
 taplo = "0.10.0"
 node = "26.11.1"
-pnpm = "12.11.2"
 lua-language-server = "3.19.1"
 neovim = "0.12.6"
 rust = "1.99.0"
@@ -26,7 +25,6 @@ depends = [
   "check:selene",
   "check:zizmor",
   "check:pinact",
-  "check:prettier",
   "check:shfmt",
   "check:taplo",
   "check:actionlint",
@@ -35,9 +33,6 @@ depends = [
 
 [tasks."apply"]
 run = "chezmoi apply"
-
-[tasks."check:prettier"]
-run = "pnpm exec prettier --check ."
 
 [tasks."check:zizmor"]
 run = "zizmor --strict-collection .github/workflows/"
@@ -70,10 +65,7 @@ run = "pinact run --update"
 run = "bash tasks/update/zsh-plugins.sh"
 
 [tasks.format]
-depends = ["format:prettier", "format:shfmt", "format:taplo"]
-
-[tasks."format:prettier"]
-run = "pnpm exec prettier --write --list-different ."
+depends = ["format:shfmt", "format:taplo"]
 
 [tasks."format:shfmt"]
 run = "git ls-files -z '*.sh' '*.zsh' | xargs -0 shfmt --write"
