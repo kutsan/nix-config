@@ -36,8 +36,8 @@ jobs:
             command: check-pinact
           - name: Shfmt
             command: check-shfmt
-          - name: Taplo
-            command: check-taplo
+          - name: Tombi
+            command: check-tombi
           - name: Actionlint
             command: check-actionlint
           - name: Nix

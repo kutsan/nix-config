@@ -2,6 +2,6 @@
 
 [global]
 disable = [
-  "MD013", # line-length
-  "MD033", # no-inline-html
+  "MD013",  # line-length
+  "MD033",  # no-inline-html
 ]

@@ -36,7 +36,7 @@
               selene
               shellcheck
               shfmt
-              taplo
+              tombi
               zizmor
             ];
           };

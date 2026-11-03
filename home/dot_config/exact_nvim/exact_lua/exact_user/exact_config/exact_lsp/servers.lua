@@ -59,7 +59,7 @@ local opts = {
 		'yamlls',
 
 		-- TOML
-		'taplo',
+		'tombi',
 
 		-- Markdown
 		'markdown-oxide',

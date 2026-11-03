@@ -276,19 +276,19 @@ keymap = [
   { on = [
     "z",
     "z",
-  ], run = "plugin change-ratio -- 1 1 1" }, # Default columns
+  ], run = "plugin change-ratio -- 1 1 1" },  # Default columns
   { on = [
     "z",
     "s",
-  ], run = "plugin change-ratio -- 0 1 0" }, # Single column
+  ], run = "plugin change-ratio -- 0 1 0" },  # Single column
   { on = [
     "z",
     "f",
-  ], run = "plugin change-ratio -- 1 3 1" }, # Focused column
+  ], run = "plugin change-ratio -- 1 3 1" },  # Focused column
   { on = [
     "z",
     "p",
-  ], run = "plugin change-ratio -- 0 1 3" }, # Preview column
+  ], run = "plugin change-ratio -- 0 1 3" },  # Preview column
 
   # Help
   { on = "~", run = "help" },

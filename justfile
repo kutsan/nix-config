@@ -6,7 +6,8 @@ apply:
     chezmoi apply
 
 [group('check')]
-check: check-shellcheck check-selene check-neovim-types check-zizmor check-pinact check-shfmt check-taplo check-actionlint check-nix check-just
+[parallel]
+check: check-shellcheck check-selene check-neovim-types check-zizmor check-pinact check-shfmt check-tombi check-actionlint check-nix check-just
 
 [group('check')]
 check-shellcheck:
@@ -33,8 +34,8 @@ check-shfmt:
     bash scripts/check/shfmt.sh
 
 [group('check')]
-check-taplo:
-    taplo format --check
+check-tombi:
+    tombi format --check
 
 [group('check')]
 check-actionlint:
@@ -49,15 +50,16 @@ check-just:
     just --fmt --check
 
 [group('format')]
-format: format-shfmt format-taplo format-nix format-just
+[parallel]
+format: format-shfmt format-tombi format-nix format-just
 
 [group('format')]
 format-shfmt:
     bash scripts/format/shfmt.sh
 
 [group('format')]
-format-taplo:
-    taplo format
+format-tombi:
+    tombi format
 
 [group('format')]
 format-nix:
