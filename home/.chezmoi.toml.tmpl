@@ -4,9 +4,7 @@
 {{- end -}}
 
 {{- $user := "kutsan" -}}
-{{- if hasKey . "user" -}}
-{{-   $user = .user -}}
-{{- end -}}
+{{- $email := "me@kutsan.dev" -}}
 
 {{- $profile := "personal" -}}
 {{- if hasKey . "profile" -}}
@@ -14,11 +12,6 @@
 {{- else if $interactive -}}
 {{-   $profile = promptChoice "Select environment profile" (list "personal" "work") -}}
 {{- end -}}
-
-{{- $emails := dict
-	"kutsan" "me@kutsan.dev"
--}}
-{{- $email := get $emails $user -}}
 
 sourceDir = {{ .chezmoi.workingTree | quote }}
 
