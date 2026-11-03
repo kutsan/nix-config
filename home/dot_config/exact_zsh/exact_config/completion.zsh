@@ -33,22 +33,3 @@ else
 fi
 
 unset zsh_cache_dir zcompdump_path
-
-# Remove the Homebrew version of `git` completions, as they are incompatible with Zsh aliases.
-if [[ $OSTYPE == darwin* ]]; then
-	remove_conflicting_git_completions() {
-		local git_completion_bash="$HOMEBREW_PREFIX/share/zsh/site-functions/git-completion.bash"
-		local git_completion_zsh="$HOMEBREW_PREFIX/share/zsh/site-functions/_git"
-
-		if [[ -e "$git_completion_bash" ]]; then
-			command rm "$git_completion_bash"
-		fi
-
-		if [[ -e "$git_completion_zsh" ]]; then
-			command rm "$git_completion_zsh"
-		fi
-	}
-
-	remove_conflicting_git_completions
-	unset -f remove_conflicting_git_completions
-fi
