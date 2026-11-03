@@ -27,11 +27,14 @@ font-feature = "zero"
 # Modify font characteristics
 adjust-underline-position = "25%"
 adjust-cell-height = "35%"
-adjust-cursor-thickness = 5
 cursor-style-blink = false
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
+
+# Cursor
+adjust-cursor-height = 17
+adjust-cursor-thickness = 5
 
 # Colors
 theme = dark:Poisonbloom Dark.conf,light:Poisonbloom Light.conf
