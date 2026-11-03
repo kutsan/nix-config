@@ -81,5 +81,5 @@ tmpconfig=$(mktemp "${TMPDIR:-/tmp}/chezmoi.XXXXXX.toml")
 readonly tmpconfig
 trap 'rm -rf -- "$tmpdir"; rm -f -- "$tmpconfig"' EXIT INT TERM
 
-create_chezmoi_config "$tmpconfig" "$MISE_PROJECT_ROOT"
-main "$tmpdir" "$tmpconfig" "$MISE_PROJECT_ROOT"
+create_chezmoi_config "$tmpconfig" "$PWD"
+main "$tmpdir" "$tmpconfig" "$PWD"

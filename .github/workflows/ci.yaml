@@ -25,32 +25,38 @@ jobs:
       matrix:
         include:
           - name: Shellcheck
-            command: check:shellcheck
+            command: check-shellcheck
           - name: Selene
-            command: check:selene
+            command: check-selene
           - name: Neovim Types
-            command: check:neovim-types
+            command: check-neovim-types
           - name: Zizmor
-            command: check:zizmor
+            command: check-zizmor
           - name: Pinact
-            command: check:pinact
+            command: check-pinact
           - name: Shfmt
-            command: check:shfmt
+            command: check-shfmt
           - name: Taplo
-            command: check:taplo
+            command: check-taplo
           - name: Actionlint
-            command: check:actionlint
+            command: check-actionlint
+          - name: Nix
+            command: check-nix
+          - name: Just
+            command: check-just
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
-      - name: Set up mise
-        uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+      - name: Install Nix
+        uses: DeterminateSystems/determinate-nix-action@92957199488000b908fdad19f63711000965d8f3 # v3.24.1
+        with:
+          diagnostic-endpoint: ''
 
       - name: ${{ matrix.name }}
         env:
           COMMAND: ${{ matrix.command }}
           GITHUB_TOKEN: ${{ github.token }}
-        run: mise run "$COMMAND"
+        run: nix develop .#ci --command just "$COMMAND"

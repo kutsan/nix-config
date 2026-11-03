@@ -87,4 +87,4 @@ main() {
 tmpfile=$(mktemp)
 readonly tmpfile
 trap 'rm -f -- "$tmpfile"' EXIT INT TERM
-main "$tmpfile" "$MISE_PROJECT_ROOT"
+main "$tmpfile" "$PWD"
