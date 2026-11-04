@@ -16,6 +16,18 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
+    homebrew-docker = {
+      url = "github:docker/homebrew-tap";
+      flake = false;
+    };
+    homebrew-jackielii = {
+      url = "github:jackielii/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -27,18 +39,33 @@
           inputs.flake-parts.flakeModules.modules
           ./modules/flake/dev-shells.nix
           ./modules/flake/formatter.nix
+          ./modules/system/homebrew.nix
+          ./modules/features/3d.nix
+          ./modules/features/ai.nix
           ./modules/features/app-store.nix
+          ./modules/features/backup.nix
+          ./modules/features/browsers.nix
           ./modules/features/cli.nix
           ./modules/features/cloud.nix
+          ./modules/features/communication.nix
           ./modules/features/containers.nix
-          ./modules/features/crypto.nix
+          ./modules/features/databases.nix
+          ./modules/features/design.nix
           ./modules/features/dev-tools.nix
           ./modules/features/disks.nix
+          ./modules/features/downloads.nix
           ./modules/features/editors.nix
+          ./modules/features/encryption.nix
+          ./modules/features/finance.nix
           ./modules/features/git.nix
+          ./modules/features/keyboard.nix
           ./modules/features/media.nix
           ./modules/features/network.nix
           ./modules/features/notes.nix
+          ./modules/features/reading.nix
+          ./modules/features/terminal.nix
+          ./modules/features/utilities.nix
+          ./modules/features/window-management.nix
         ];
 
         systems = [
@@ -59,6 +86,7 @@
                   system = {
                     stateVersion = 7;
                     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+                    primaryUser = "kutsan";
                   };
                   programs.direnv.enable = true;
                 }

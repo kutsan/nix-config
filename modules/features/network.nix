@@ -10,5 +10,12 @@ let
 in
 {
   flake.modules.nixos.base = packages;
-  flake.modules.darwin.base = packages;
+
+  flake.modules.darwin.base = {
+    imports = [ packages ];
+
+    homebrew.casks = [
+      "proxyman"
+    ];
+  };
 }

@@ -17,6 +17,23 @@
         "type": "github"
       }
     },
+    "brew-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793000687,
+        "narHash": "sha256-8mCor0DDjNhi+0e+FllfqiMABujBl+/RxYW+wgMpcto=",
+        "owner": "Homebrew",
+        "repo": "brew",
+        "rev": "c6069d2a943b71b0a90d91fc1ac93cb9c1634dcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Homebrew",
+        "ref": "7.0.11",
+        "repo": "brew",
+        "type": "github"
+      }
+    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -155,6 +172,38 @@
         "url": "https://flakehub.com/f/cachix/git-hooks.nix/0.1.941"
       }
     },
+    "homebrew-docker": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793715306,
+        "narHash": "sha256-d//xuLQ0+NpReWjyRMqUQTtX//W/IW+7j8Tka0h866k=",
+        "owner": "docker",
+        "repo": "homebrew-tap",
+        "rev": "fcf48bcf6a6fc5ed12050baa878df9bf0f7b578c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "docker",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
+    "homebrew-jackielii": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793740889,
+        "narHash": "sha256-8MEIXuA6Ro0tjhRG0nhg1tJUJ/vNBRnfSSLI28Kvlbs=",
+        "owner": "jackielii",
+        "repo": "homebrew-tap",
+        "rev": "9b0de9208f6c68b9123ffffae5ad55950a115748",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jackielii",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
         "bdwgc": "bdwgc",
@@ -195,6 +244,24 @@
         "owner": "nix-darwin",
         "ref": "master",
         "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nix-homebrew": {
+      "inputs": {
+        "brew-src": "brew-src"
+      },
+      "locked": {
+        "lastModified": 1793543863,
+        "narHash": "sha256-oDYLVD8KGT/M57c8HziYSSj0le4wCyA+jZ7+/qUS91M=",
+        "owner": "zhaofengli",
+        "repo": "nix-homebrew",
+        "rev": "52bc87da3f30c2261a6d1cfef3c892097b53daeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhaofengli",
+        "repo": "nix-homebrew",
         "type": "github"
       }
     },
@@ -264,7 +331,10 @@
       "inputs": {
         "determinate": "determinate",
         "flake-parts": "flake-parts_2",
+        "homebrew-docker": "homebrew-docker",
+        "homebrew-jackielii": "homebrew-jackielii",
         "nix-darwin": "nix-darwin",
+        "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2"
       }
     }

@@ -18,5 +18,10 @@ in
       environment.systemPackages = with pkgs; [
         mole-cleaner
       ];
+
+      homebrew.casks = [
+        "neodisk"
+        "pearcleaner"
+      ];
     };
 }
