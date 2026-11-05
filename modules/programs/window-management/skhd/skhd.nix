@@ -22,7 +22,7 @@
         };
         onChange = ''
           if /usr/bin/pgrep -qx skhd; then
-            ${osConfig.homebrew.prefix}/bin/skhd --restart-service
+            PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH" ${osConfig.homebrew.prefix}/bin/skhd --restart-service
           fi
         '';
       };

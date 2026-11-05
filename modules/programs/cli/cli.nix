@@ -7,13 +7,11 @@ let
         btop
         fd
         fx
-        fzf
         jq
         ripgrep
         tokei
         tree
         yazi
-        zoxide
       ];
     };
 in

@@ -18,6 +18,7 @@
       media
       network
       notes
+      zsh
     ];
 
     system.stateVersion = "26.11";

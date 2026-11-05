@@ -24,16 +24,19 @@
       editors
       encryption
       finance
+      fonts
       git
       keyboard
       media
       network
       notes
       reading
+      sketchybar
       skhd
       terminal
       utilities
       yabai
+      zsh
     ];
 
     system.stateVersion = 7;

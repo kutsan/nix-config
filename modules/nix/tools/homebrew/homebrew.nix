@@ -14,7 +14,14 @@
           "docker/homebrew-tap" = inputs.homebrew-docker;
           "jackielii/homebrew-tap" = inputs.homebrew-jackielii;
         };
-        extraEnv.HOMEBREW_NO_ANALYTICS = "1";
+        extraEnv = {
+          HOMEBREW_CLEANUP_MAX_AGE_DAYS = "7";
+          HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS = "7";
+          HOMEBREW_DISPLAY_INSTALL_TIMES = "1";
+          HOMEBREW_NO_ANALYTICS = "1";
+          HOMEBREW_NO_EMOJI = "1";
+          HOMEBREW_NO_ENV_HINTS = "1";
+        };
       };
 
       homebrew = {

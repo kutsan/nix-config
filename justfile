@@ -74,10 +74,6 @@ update-pinact:
     pinact run --update
 
 [group('update')]
-update-zsh-plugins:
-    bash scripts/update/zsh-plugins.sh
-
-[group('update')]
 update-nix:
     nix flake update
 

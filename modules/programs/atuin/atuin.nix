@@ -1,0 +1,34 @@
+{
+  flake.modules.homeManager.atuin =
+    { config, ... }:
+    {
+      programs.atuin = {
+        enable = true;
+
+        settings = {
+          # Interface
+          style = "compact";
+          inline_height = 10;
+          show_help = false;
+          show_tabs = false;
+          show_preview = false;
+
+          # Search & Filter
+          workspaces = true;
+          filter_mode_shell_up_key_binding = "session";
+
+          # Behavior
+          enter_accept = false;
+          keymap_mode = "vim-insert";
+
+          # AI
+          ai.enabled = true;
+
+          # Storage
+          data_dir = "${config.xdg.dataHome}/atuin";
+        };
+      };
+
+      programs.fzf.historyWidget.command = "";
+    };
+}

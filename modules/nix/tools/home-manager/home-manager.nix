@@ -4,6 +4,7 @@ let
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "before-home-manager";
     };
   };
 in
