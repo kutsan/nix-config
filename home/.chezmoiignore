@@ -1,15 +1,9 @@
 {{ if ne .chezmoi.os "darwin" -}}
 .config/backblaze
-.config/homebrew
 .config/sketchybar
 .config/skhd
 .config/yabai
 Library
-{{- end }}
-
-{{ if or (ne .chezmoi.os "darwin") (ne .profile "personal") -}}
-.local/libexec/asimov
-Library/LaunchAgents/local.asimov.plist
 {{- end }}
 
 {{ if ne .profile "personal" -}}

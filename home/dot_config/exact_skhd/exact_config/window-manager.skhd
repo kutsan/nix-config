@@ -14,7 +14,7 @@
 .define float_window : yabai --message window --toggle float && yabai --message window --grid 12:12:{{1}}
 .define float_grid : yabai --message window --grid 12:12:{{1}}
 .define balance_space : yabai --message space --balance
-.define reload_window_manager_service : yabai --restart-service
+.define reload_window_manager_service : launchctl kickstart -k "gui/$(id -u)/org.nixos.yabai"
 
 # Focus space
 lalt - 1 : @focus_space("1")
