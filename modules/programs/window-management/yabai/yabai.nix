@@ -1,6 +1,16 @@
 {
   flake.modules.darwin.yabai =
-    { pkgs, ... }:
+    { lib, pkgs, ... }:
+    let
+      configDirectory = lib.fileset.toSource {
+        root = ./.;
+        fileset = lib.fileset.unions [
+          ./yabairc
+          ./config
+          ./scripts
+        ];
+      };
+    in
     {
       services.yabai = {
         enable = true;
@@ -15,6 +25,7 @@
             };
           }
         );
+        extraConfig = "${configDirectory}/yabairc";
       };
     };
 }

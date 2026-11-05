@@ -1,8 +1,6 @@
 {{ if ne .chezmoi.os "darwin" -}}
 .config/backblaze
 .config/sketchybar
-.config/skhd
-.config/yabai
 Library
 {{- end }}
 

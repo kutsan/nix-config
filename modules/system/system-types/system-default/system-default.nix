@@ -4,10 +4,15 @@ let
 in
 {
   flake.modules.nixos.system-default = {
-    imports = with inputs.self.modules.generic; [
-      pkgs-by-name
-      system-constants
-    ];
+    imports =
+      with inputs.self.modules.nixos;
+      [
+        home-manager
+      ]
+      ++ (with inputs.self.modules.generic; [
+        pkgs-by-name
+        system-constants
+      ]);
 
     system.configurationRevision = configurationRevision;
 
@@ -22,6 +27,7 @@ in
       with inputs.self.modules.darwin;
       [
         determinate
+        home-manager
         homebrew
       ]
       ++ (with inputs.self.modules.generic; [
@@ -30,5 +36,13 @@ in
       ]);
 
     system.configurationRevision = configurationRevision;
+  };
+
+  flake.modules.homeManager.system-default = {
+    imports = [ inputs.self.modules.generic.system-constants ];
+
+    home.stateVersion = "26.11";
+
+    xdg.enable = true;
   };
 }

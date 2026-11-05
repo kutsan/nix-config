@@ -6,7 +6,6 @@ let
         act
         devcontainer
         dive
-        lazydocker
       ];
     };
 in

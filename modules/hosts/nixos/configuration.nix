@@ -4,6 +4,8 @@
     imports = with inputs.self.modules.nixos; [
       system-default
 
+      kutsan
+
       cli
       cloud
       containers

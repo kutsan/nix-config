@@ -53,7 +53,6 @@ export LESS="\
 	--tabs=4 \
 	--shift=5"
 export LESSHISTFILE='-'                          # Disable history.
-export LESSKEYIN="$XDG_CONFIG_HOME/less/lesskey" # Path of lesskey file.
 export LESS_TERMCAP_md=$'\e[01;34m'              # Turn on bold mode.
 export LESS_TERMCAP_me=$'\e[0m'                  # Turn off all attributes.
 export LESS_TERMCAP_mh=$'\e[2m'                  # Turn on dim mode.

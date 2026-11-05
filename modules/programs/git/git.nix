@@ -7,7 +7,6 @@ let
         gh
         git
         git-standup
-        lazygit
       ];
     };
 in
