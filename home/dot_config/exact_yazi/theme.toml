@@ -1,8 +1,0 @@
-#:schema https://yazi-rs.github.io/schemas/theme.json
-
-[flavor]
-dark = "poisonbloom-dark"
-light = "poisonbloom-light"
-
-[mgr]
-border_symbol = " "

@@ -10,7 +10,6 @@ let
         ripgrep
         tokei
         tree
-        yazi
       ];
     };
 in

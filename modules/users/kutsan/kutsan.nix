@@ -56,6 +56,7 @@ in
       less
       rumdl
       wallpapers
+      yazi
       zoxide
       zsh
     ];
