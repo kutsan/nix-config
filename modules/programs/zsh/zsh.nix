@@ -69,6 +69,9 @@ in
         GUI_EDITOR = "zed";
         FILE_MANAGER = "yazi";
 
+        # ls
+        LS_COLORS = lib.fileContents ./ls-colors;
+
         # Telemetry
         DISABLE_TELEMETRY = "1";
         DO_NOT_TRACK = "1";
@@ -84,24 +87,11 @@ in
         # Rust
         CARGO_HOME = "${config.xdg.dataHome}/cargo";
         RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
-
-        # GnuPG
-        GNUPGHOME = "${config.xdg.configHome}/gnupg";
-
-        # QMK
-        QMK_HOME = "${config.xdg.dataHome}/qmk-firmware";
-
-        # sbx
-        SBX_NO_TELEMETRY = "1";
-
-        # Claude Code
-        CLAUDE_CONFIG_DIR = "${config.xdg.configHome}/claude";
-        CLAUDE_CODE_DISABLE_TERMINAL_TITLE = "1";
       };
 
       home.sessionPath = [
         # Rust
-        "${config.xdg.dataHome}/cargo/bin"
+        "${config.home.sessionVariables.CARGO_HOME}/bin"
         # Local Executables
         "${config.home.homeDirectory}/.local/bin"
       ];

@@ -1,9 +1,3 @@
 {{ if ne .chezmoi.os "darwin" -}}
-.config/backblaze
 Library
-{{- end }}
-
-{{ if ne .profile "personal" -}}
-.config/qmk
-.config/qmk-userspace
 {{- end }}

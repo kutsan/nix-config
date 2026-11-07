@@ -17,7 +17,6 @@ in
 
     homebrew.casks = [
       "docker-desktop"
-      "docker/tap/sbx"
     ];
   };
 }

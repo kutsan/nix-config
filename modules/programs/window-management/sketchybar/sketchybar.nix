@@ -4,12 +4,7 @@
     let
       configDirectory = lib.fileset.toSource {
         root = ./.;
-        fileset = lib.fileset.unions [
-          ./sketchybarrc
-          ./options
-          ./sections
-          ./styles
-        ];
+        fileset = lib.fileset.difference ./. ./sketchybar.nix;
       };
     in
     {

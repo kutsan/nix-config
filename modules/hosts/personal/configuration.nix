@@ -6,11 +6,11 @@
 
       kutsan
 
-      ai
       app-store
       asimov
-      backup
+      backblaze
       browsers
+      claude
       cli
       cloud
       communication
@@ -25,17 +25,21 @@
       encryption
       finance
       fonts
+      ghostty
       git
       keyboard
       media
       network
       notes
+      qmk
       reading
+      sbx
       sketchybar
       skhd
-      terminal
+      ukelele
       utilities
       yabai
+      zed
       zsh
     ];
 

@@ -11,11 +11,5 @@ in
 {
   flake.modules.nixos.editors = sharedModule;
 
-  flake.modules.darwin.editors = {
-    imports = [ sharedModule ];
-
-    homebrew.casks = [
-      "zed"
-    ];
-  };
+  flake.modules.darwin.editors = sharedModule;
 }

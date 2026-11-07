@@ -4,11 +4,7 @@
     let
       configDirectory = lib.fileset.toSource {
         root = ./.;
-        fileset = lib.fileset.unions [
-          ./yabairc
-          ./config
-          ./scripts
-        ];
+        fileset = lib.fileset.difference ./. ./yabai.nix;
       };
     in
     {

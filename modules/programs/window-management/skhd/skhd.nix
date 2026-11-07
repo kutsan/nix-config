@@ -14,11 +14,7 @@
       xdg.configFile.skhd = {
         source = lib.fileset.toSource {
           root = ./.;
-          fileset = lib.fileset.unions [
-            ./skhdrc
-            ./config
-            ./scripts
-          ];
+          fileset = lib.fileset.difference ./. ./skhd.nix;
         };
         onChange = ''
           if /usr/bin/pgrep -qx skhd; then

@@ -18,12 +18,7 @@ interface BuildTarget {
 
 const SCRIPT_DIR = import.meta.dirname
 const REPO_ROOT = join(SCRIPT_DIR, '..', '..')
-const USERSPACE_DIR = join(
-	REPO_ROOT,
-	'home',
-	'dot_config',
-	'exact_qmk-userspace',
-)
+const USERSPACE_DIR = join(REPO_ROOT, 'modules', 'programs', 'qmk', 'userspace')
 const ASSETS_DIR = join(REPO_ROOT, '.github', 'assets')
 const README_PATH = join(REPO_ROOT, 'README.md')
 const KEYMAP_CONFIG = join(SCRIPT_DIR, 'keymap-config.yaml')
@@ -34,10 +29,10 @@ const MARKER_END = '<!-- KEYBOARD-DOCS:END -->'
 const getKeymapPath = ({ keyboard, keymap }: BuildTarget): string =>
 	join(
 		USERSPACE_DIR,
-		'exact_keyboards',
-		...keyboard.split('/').map((part) => `exact_${part}`),
-		'exact_keymaps',
-		...keymap.split('/').map((part) => `exact_${part}`),
+		'keyboards',
+		...keyboard.split('/'),
+		'keymaps',
+		...keymap.split('/'),
 		'keymap.c',
 	)
 

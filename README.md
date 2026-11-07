@@ -119,7 +119,7 @@ git clone https://github.com/kutsan/dotfiles.git ~/.local/share/chezmoi
 
 ## Keyboard
 
-See [`.config/qmk-userspace`](https://github.com/kutsan/dotfiles/tree/main/home/dot_config/exact_qmk-userspace) folder for the QMK configuration.
+See [`modules/programs/qmk/userspace`](https://github.com/kutsan/dotfiles/tree/main/modules/programs/qmk/userspace) folder for the QMK configuration.
 
 <!-- KEYBOARD-DOCS:START -->
 

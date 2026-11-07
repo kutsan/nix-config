@@ -3,7 +3,7 @@ whiskers:
   version: "^2.9.0"
   matrix:
     - flavor: ["latte", "mocha"]
-  filename: "home/dot_config/exact_ghostty/exact_themes/Poisonbloom {% if flavor.dark %}Dark{% else %}Light{% endif %}.conf"
+  filename: "modules/programs/ghostty/themes/Poisonbloom {% if flavor.dark %}Dark{% else %}Light{% endif %}.conf"
   hex_format: "#{{r}}{{g}}{{b}}"
 ---
 {%- set term = ansi[flavor.identifier] -%}

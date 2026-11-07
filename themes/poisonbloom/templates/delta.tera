@@ -1,7 +1,7 @@
 ---
 whiskers:
   version: ^2.5.1
-  filename: "home/dot_config/exact_delta/exact_themes/poisonbloom.gitconfig"
+  filename: "modules/programs/delta/themes/poisonbloom.gitconfig"
   hex_format: "#{{r}}{{g}}{{b}}"
 ---
 

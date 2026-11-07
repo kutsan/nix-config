@@ -3,7 +3,6 @@ let
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
-        bat
         btop
         fd
         fx
