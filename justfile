@@ -1,10 +1,6 @@
 set shell := ["bash", "-c"]
 set default-list
 
-[group('apply')]
-apply:
-    chezmoi apply
-
 [group('check')]
 [parallel]
 check: check-shellcheck check-selene check-neovim-types check-zizmor check-pinact check-shfmt check-tombi check-actionlint check-nix check-just

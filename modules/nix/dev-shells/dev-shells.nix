@@ -6,7 +6,6 @@
         packages = with pkgs; [
           actionlint
           bash
-          chezmoi
           git
           just
           lua-language-server

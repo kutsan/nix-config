@@ -21,7 +21,6 @@
       direnv
       disks
       downloads
-      editors
       encryption
       finance
       fonts
@@ -29,6 +28,7 @@
       git
       keyboard
       media
+      neovim
       network
       notes
       qmk

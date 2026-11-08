@@ -362,6 +362,22 @@
         "type": "github"
       }
     },
+    "personal-fonts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792854798,
+        "narHash": "sha256-lgsX4J/+coOIDPvX64EvZ7EVcBLDWLSbJBKSB//HXS4=",
+        "owner": "kutsan",
+        "repo": "fonts",
+        "rev": "cf693f89b784accb0465b03a0b18a44f7f5711d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kutsan",
+        "repo": "fonts",
+        "type": "github"
+      }
+    },
     "pkgs-by-name-for-flake-parts": {
       "locked": {
         "lastModified": 1789628227,
@@ -388,7 +404,29 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
-        "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts"
+        "personal-fonts": "personal-fonts",
+        "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793995029,
+        "narHash": "sha256-ZlE4BtMjWhfC6rFXLO9Qimn36Ene1INqCgKDDvazjhc=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "89a234ce2daf6e568a7d4b4fe250afdd23d84e20",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     }
   },

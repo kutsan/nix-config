@@ -1,6 +1,17 @@
 { inputs, ... }:
 let
   configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+
+  # Unfree packages are allowed by name only, all of them listed here.
+  unfreePackages =
+    { lib, ... }:
+    {
+      nixpkgs.config.allowUnfreePredicate =
+        pkg:
+        builtins.elem (lib.getName pkg) [
+          "copilot-language-server"
+        ];
+    };
 in
 {
   flake.modules.nixos.system-default = {
@@ -12,7 +23,8 @@ in
       ++ (with inputs.self.modules.generic; [
         pkgs-by-name
         system-constants
-      ]);
+      ])
+      ++ [ unfreePackages ];
 
     system.configurationRevision = configurationRevision;
 
@@ -33,13 +45,21 @@ in
       ++ (with inputs.self.modules.generic; [
         pkgs-by-name
         system-constants
-      ]);
+      ])
+      ++ [ unfreePackages ];
 
     system.configurationRevision = configurationRevision;
   };
 
   flake.modules.homeManager.system-default = {
-    imports = [ inputs.self.modules.generic.system-constants ];
+    imports =
+      with inputs.self.modules.homeManager;
+      [
+        sops-nix
+      ]
+      ++ (with inputs.self.modules.generic; [
+        system-constants
+      ]);
 
     home.stateVersion = "26.11";
 

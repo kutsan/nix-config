@@ -3,7 +3,7 @@
 set -o errexit -o nounset -o pipefail
 IFS=$'\n\t'
 
-readonly NVIM_CONFIG_DIR="home/dot_config/exact_nvim"
+readonly NVIM_CONFIG_DIR="modules/programs/neovim/config"
 
 resolve_neovim_runtime_path() {
 	nvim --clean --headless \

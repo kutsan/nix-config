@@ -1,4 +1,0 @@
-UserKnownHostsFile ~/.ssh/known_hosts ~/.ssh/known_hosts-common
-ServerAliveInterval 15
-IdentitiesOnly yes
-HashKnownHosts yes

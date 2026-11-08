@@ -4,6 +4,7 @@ let
     {
       environment.systemPackages = with pkgs; [
         age
+        sops
       ];
     };
 in

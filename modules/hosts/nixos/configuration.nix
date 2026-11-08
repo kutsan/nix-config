@@ -12,10 +12,10 @@
       dev-tools
       direnv
       disks
-      editors
       encryption
       git
       media
+      neovim
       network
       notes
       zsh
