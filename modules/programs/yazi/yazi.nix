@@ -166,7 +166,7 @@
           (bind [ "b" "x" "d" ] "cd $XDG_DATA_HOME")
           (bind [ "b" "x" "s" ] "cd $XDG_STATE_HOME")
           (bind [ "b" "i" ] "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs")
-          (bind [ "b" "c" ] "cd $XDG_DATA_HOME/chezmoi")
+          (bind [ "b" "c" ] "cd /etc/nix-darwin")
 
           # Tabs
           (bind "t" "tab_create --current")
