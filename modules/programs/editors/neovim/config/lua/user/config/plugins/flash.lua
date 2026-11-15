@@ -5,11 +5,7 @@ local opts = {
 		multi_window = false,
 	},
 	modes = {
-		search = {
-			enabled = false,
-		},
 		char = {
-			enabled = true,
 			char_actions = function()
 				return {
 					[';'] = 'next',

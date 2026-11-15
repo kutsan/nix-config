@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			client:supports_method(
 				vim.lsp.protocol.Methods.textDocument_inlayHint,
 				args.buf
-			) and vim.lsp.inlay_hint
+			)
 		then
 			vim.keymap.set('n', 'coi', function()
 				vim.lsp.inlay_hint.enable(

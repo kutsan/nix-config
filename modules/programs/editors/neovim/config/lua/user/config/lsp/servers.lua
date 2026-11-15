@@ -13,6 +13,7 @@ vim.lsp.enable({
 
 	-- Lua
 	'lua_ls',
+	'selene3p_ls',
 
 	-- Python
 	'ty',

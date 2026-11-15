@@ -1,16 +1,8 @@
 { inputs, ... }:
 let
-  sharedModule =
-    { lib, ... }:
-    {
-      nixpkgs.config.allowUnfreePredicate =
-        pkg:
-        builtins.elem (lib.getName pkg) [
-          "copilot-language-server"
-        ];
-
-      system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-    };
+  sharedModule = {
+    system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+  };
 in
 {
   flake.modules.nixos.system-minimal = {
@@ -29,5 +21,6 @@ in
     home.language.base = "en_US.UTF-8";
 
     xdg.enable = true;
+    xdg.localBinInPath = true;
   };
 }

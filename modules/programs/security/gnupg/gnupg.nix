@@ -11,5 +11,9 @@
           no-version = true;
         };
       };
+
+      programs.zsh.initContent = ''
+        export GPG_TTY="$TTY"
+      '';
     };
 }

@@ -1,7 +1,6 @@
 typeset -ga configs=(
 	modules
 	options
-	environment
 	completion
 	aliases
 	line-editor

@@ -8,6 +8,8 @@ let
         config.home-manager.users.${config.systemConstants.username}.programs.neovim.finalPackage
       ];
 
+      nixpkgs.config.allowUnfreePackages = [ "copilot-language-server" ];
+
       home-manager.sharedModules = [ inputs.self.modules.homeManager.neovim ];
     };
 in
@@ -21,11 +23,6 @@ in
       programs.neovim = {
         enable = true;
         defaultEditor = true;
-
-        withNodeJs = false;
-        withPerl = false;
-        withPython3 = false;
-        withRuby = false;
 
         # Loads Home Manager's own init code through the wrapper, since `init.lua` comes from the
         # config folder below.
@@ -160,6 +157,7 @@ in
           shfmt
 
           # Lua
+          local.lua-3p-language-servers
           lua-language-server
           selene
           stylua
@@ -201,7 +199,6 @@ in
 
           # Prose
           harper
-          typos
           typos-lsp
 
           # AI

@@ -3,9 +3,6 @@ local opts = {
 		animate = {
 			enabled = false,
 		},
-		scope = {
-			enabled = true,
-		},
 	},
 }
 

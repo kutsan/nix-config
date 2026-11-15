@@ -1,6 +1,6 @@
 {
   flake.modules.darwin.sketchybar =
-    { config, lib, ... }:
+    { lib, ... }:
     let
       configDirectory = lib.fileset.toSource {
         root = ./.;
@@ -8,12 +8,9 @@
       };
     in
     {
-      services.sketchybar.enable = true;
-
-      launchd.user.agents.sketchybar.serviceConfig.ProgramArguments = lib.mkForce [
-        "${config.services.sketchybar.package}/bin/sketchybar"
-        "--config"
-        "${configDirectory}/sketchybarrc"
-      ];
+      services.sketchybar = {
+        enable = true;
+        config = "${configDirectory}/sketchybarrc";
+      };
     };
 }

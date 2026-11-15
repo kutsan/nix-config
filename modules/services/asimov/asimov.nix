@@ -1,5 +1,10 @@
+{ inputs, ... }:
 {
-  flake.modules.darwin.asimov =
+  flake.modules.darwin.asimov = {
+    home-manager.sharedModules = [ inputs.self.modules.homeManager.asimov ];
+  };
+
+  flake.modules.homeManager.asimov =
     {
       config,
       lib,
@@ -7,15 +12,19 @@
       ...
     }:
     let
-      user = config.systemConstants.username;
-      logPath = "/Users/${user}/Library/Logs/asimov.log";
+      logPath = "${config.home.homeDirectory}/Library/Logs/asimov.log";
     in
     {
-      environment.systemPackages = [ pkgs.local.asimov ];
+      home.packages = [ pkgs.local.asimov ];
 
-      launchd.user.agents.asimov = {
-        command = "${lib.getExe pkgs.local.asimov} --quiet";
-        serviceConfig = {
+      launchd.agents.asimov = {
+        enable = true;
+
+        config = {
+          ProgramArguments = [
+            (lib.getExe pkgs.local.asimov)
+            "--quiet"
+          ];
           StartInterval = 86400;
           StandardOutPath = logPath;
           StandardErrorPath = logPath;

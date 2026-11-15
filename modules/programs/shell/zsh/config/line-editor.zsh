@@ -6,9 +6,9 @@ zle -N select-bracketed
 zle -N select-quoted
 
 # Insert Mode
-bindkey -M viins '^K' atuin-up-search-viins # Override `up-history` to use Atuin search.
+bindkey -M viins '^K' up-history
 bindkey -M viins '^J' down-history
-bindkey -M viins '^P' atuin-up-search-viins # Override `up-history` to use Atuin search.
+bindkey -M viins '^P' up-history
 bindkey -M viins '^N' down-history
 bindkey -M viins '^F' vi-forward-char
 bindkey -M viins '^U' backward-kill-line

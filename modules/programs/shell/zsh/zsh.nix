@@ -35,10 +35,8 @@ in
       programs.zsh = {
         enable = true;
         package = null;
-        enableCompletion = true;
         completionInit = "source ${./compinit.zsh}";
 
-        profileExtra = "source ${./zprofile.zsh}";
         loginExtra = "source ${./zlogin.zsh}";
 
         initContent = lib.mkMerge [
@@ -63,11 +61,11 @@ in
       };
 
       home.sessionVariables = {
-        # Zsh Config
-        SHELL_SESSIONS_DISABLE = "1";
-
         # ls
         LS_COLORS = lib.fileContents ./ls-colors;
+
+        # man
+        MANWIDTH = "100";
 
         # Telemetry
         DISABLE_TELEMETRY = "1";
@@ -89,8 +87,6 @@ in
       home.sessionPath = [
         # Rust
         "${config.home.sessionVariables.CARGO_HOME}/bin"
-        # Local Executables
-        "${config.home.homeDirectory}/.local/bin"
       ];
 
       # Hides the "Last login" message `login` prints when a terminal starts the shell.

@@ -48,8 +48,6 @@
           allBranchesLogCmds = [ "git la --color=always" ];
         };
 
-        os.editPreset = "nvim";
-
         customCommands = [
           {
             key = "R";

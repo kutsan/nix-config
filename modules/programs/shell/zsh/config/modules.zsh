@@ -1,6 +1,5 @@
 # Define functions to load them on execution.
 for fn in \
-	promptinit \
 	surround \
 	select-bracketed \
 	select-quoted; do

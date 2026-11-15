@@ -41,10 +41,13 @@ in
   flake.modules.homeManager.${username} =
     { config, ... }:
     {
-      programs.git.settings.user = {
-        name = "Kutsan Kaplan";
-        email = "me@kutsan.dev";
-        signingkey = "24D78A1B";
+      programs.git = {
+        settings.user = {
+          name = "Kutsan Kaplan";
+          email = "me@kutsan.dev";
+        };
+
+        signing.key = "24D78A1B";
       };
 
       sops = {

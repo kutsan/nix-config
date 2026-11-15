@@ -51,9 +51,6 @@ local opts = {
 			},
 		},
 	},
-	fuzzy = {
-		implementation = 'prefer_rust_with_warning',
-	},
 }
 
 blink_cmp.setup(opts)

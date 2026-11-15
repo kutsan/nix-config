@@ -29,6 +29,11 @@
         };
       };
 
+      programs.zsh.initContent = ''
+        bindkey -M viins '^K' atuin-up-search-viins
+        bindkey -M viins '^P' atuin-up-search-viins
+      '';
+
       programs.fzf.historyWidget.command = "";
     };
 }

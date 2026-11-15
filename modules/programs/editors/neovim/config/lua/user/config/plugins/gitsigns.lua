@@ -1,12 +1,12 @@
 local gitsigns = require('gitsigns')
 
 local opts = {
-	on_attach = function()
+	on_attach = function(bufnr)
 		vim.keymap.set(
 			'n',
 			'<Space>gb',
 			gitsigns.blame,
-			{ silent = true, desc = 'Git blame' }
+			{ buffer = bufnr, silent = true, desc = 'Git blame' }
 		)
 	end,
 }

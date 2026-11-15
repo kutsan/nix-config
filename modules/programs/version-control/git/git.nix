@@ -126,7 +126,7 @@ in
             bl = "!git --no-pager branch --verbose --all";
             c = "commit";
             d = "diff --stat=100,100 --patch";
-            ds = "d --staged";
+            ds = "diff --stat=100,100 --patch --staged";
             f = "fetch";
             t = "stash";
             tl = "!git --no-pager stash list";
@@ -153,5 +153,12 @@ in
         # Machine-specific settings that stay out of the repository.
         includes = lib.mkAfter [ { path = "${config.xdg.configHome}/git/local.gitconfig"; } ];
       };
+
+      home.shellAliases = {
+        g = "git";
+      }
+      // lib.mapAttrs' (
+        name: _: lib.nameValuePair "g${name}" "git ${name}"
+      ) config.programs.git.settings.alias;
     };
 }

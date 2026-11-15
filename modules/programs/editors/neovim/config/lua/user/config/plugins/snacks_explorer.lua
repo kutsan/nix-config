@@ -1,7 +1,5 @@
 local opts = {
-	explorer = {
-		replace_netrw = true,
-	},
+	explorer = {},
 	picker = {
 		sources = {
 			explorer = {

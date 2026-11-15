@@ -1,11 +1,3 @@
-# Add Docker CLI completions.
-if command -v docker &>/dev/null; then
-	fpath=(
-		"$HOME/.docker/completions"
-		$fpath
-	)
-fi
-
 # Cache directory should be created manually since zsh doesn't create
 # XDG Base Directory paths automatically.
 typeset -g zsh_cache_dir="$XDG_CACHE_HOME/zsh"

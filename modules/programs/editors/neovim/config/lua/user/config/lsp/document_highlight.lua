@@ -65,22 +65,27 @@ end
 
 ---@param bufnr integer
 ---@param results lsp.DocumentHighlight[]
-local function apply_highlights(bufnr, results)
+---@param position_encoding 'utf-8'|'utf-16'|'utf-32'
+local function apply_highlights(bufnr, results, position_encoding)
 	for _, item in ipairs(results) do
 		local range = item.range
 
-		-- Convert LSP UTF-16 offsets to byte offsets for extmarks.
+		-- Convert LSP offsets to byte offsets for extmarks.
 		vim.api.nvim_buf_set_extmark(
 			bufnr,
 			document_highlight_namespace,
 			range.start.line,
-			vim.lsp.util._get_line_byte_from_position(bufnr, range.start, 'utf-16'),
+			vim.lsp.util._get_line_byte_from_position(
+				bufnr,
+				range.start,
+				position_encoding
+			),
 			{
 				end_line = range['end'].line,
 				end_col = vim.lsp.util._get_line_byte_from_position(
 					bufnr,
 					range['end'],
-					'utf-16'
+					position_encoding
 				),
 				hl_group = kind_to_hl[item.kind] or 'LspReferenceText',
 				priority = vim.hl.priorities.user,
@@ -153,7 +158,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 					end
 
 					if result then
-						apply_highlights(bufnr, result)
+						apply_highlights(bufnr, result, target.offset_encoding)
 					end
 				end,
 				bufnr

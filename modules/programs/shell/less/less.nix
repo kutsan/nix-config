@@ -7,6 +7,19 @@
       programs.less = {
         enable = true;
 
+        options = {
+          ignore-case = true;
+          tilde = true;
+          chop-long-lines = true;
+          status-column = true;
+          LONG-PROMPT = true;
+          jump-target = 10;
+          RAW-CONTROL-CHARS = true;
+          clear-screen = true;
+          tabs = 4;
+          shift = 5;
+        };
+
         config = ''
           #command
           h left-scroll
@@ -16,7 +29,6 @@
 
       home.sessionVariables = {
         PAGER = "less";
-        LESS = "--ignore-case --tilde --chop-long-lines --status-column --LONG-PROMPT --jump-target=10 --RAW-CONTROL-CHARS --clear-screen --tabs=4 --shift=5";
         LESSHISTFILE = "-";
 
         LESS_TERMCAP_md = "${escapeCharacter}[01;34m";

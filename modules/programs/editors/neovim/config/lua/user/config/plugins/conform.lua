@@ -1,27 +1,17 @@
 local conform = require('conform')
 
-local prettier_formatters = {
-	'prettierd',
-	'prettier',
-	stop_after_first = true,
-}
-
-local shell_formatter = {
-	'shfmt',
-}
-
 local opts = {
 	formatters_by_ft = {
 		lua = { 'stylua' },
-		javascript = prettier_formatters,
-		typescript = prettier_formatters,
-		typescriptreact = prettier_formatters,
-		yaml = prettier_formatters,
-		json = prettier_formatters,
+		javascript = { 'prettierd' },
+		typescript = { 'prettierd' },
+		typescriptreact = { 'prettierd' },
+		yaml = { 'prettierd' },
+		json = { 'prettierd' },
 		typst = { 'typstyle' },
-		sh = shell_formatter,
-		bash = shell_formatter,
-		zsh = shell_formatter,
+		sh = { 'shfmt' },
+		bash = { 'shfmt' },
+		zsh = { 'shfmt' },
 		python = { 'ruff_format' },
 		nix = { 'nixfmt' },
 	},

@@ -13,8 +13,7 @@
           trim_trailing_whitespace = true;
         };
 
-        "*.{md,yml,yaml,yaml.tmpl,toml}" = {
-          indent_size = 2;
+        "*.{md,yml,yaml,toml}" = {
           indent_style = "space";
         };
 
@@ -24,7 +23,6 @@
         };
 
         "package.json" = {
-          indent_size = 2;
           indent_style = "space";
         };
 
