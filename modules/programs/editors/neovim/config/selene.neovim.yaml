@@ -1,7 +1,12 @@
 base: lua51
 
+lua_versions:
+  - luajit
+
 globals:
   vim:
     any: true
   jit:
+    any: true
+  bit:
     any: true
