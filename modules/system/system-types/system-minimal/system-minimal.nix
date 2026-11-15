@@ -3,7 +3,6 @@ let
   sharedModule =
     { lib, ... }:
     {
-      # Unfree packages are allowed by name only, all of them listed here.
       nixpkgs.config.allowUnfreePredicate =
         pkg:
         builtins.elem (lib.getName pkg) [

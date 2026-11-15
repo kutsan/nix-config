@@ -38,7 +38,6 @@
       netnewswire
       obs
       orcaslicer
-      pearcleaner
       proxyman
       qmk
       sbx

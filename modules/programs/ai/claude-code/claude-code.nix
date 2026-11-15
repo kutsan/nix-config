@@ -13,19 +13,12 @@
           model = "opus";
           effortLevel = "xhigh";
           tui = "fullscreen";
-          defaultMode = "manual";
           theme = "auto";
           editorMode = "vim";
 
           attribution = {
             commit = "";
             pr = "";
-          };
-
-          sandbox = {
-            enabled = true;
-            autoAllowBashIfSandboxed = true;
-            allowUnsandboxedCommands = false;
           };
 
           env = {

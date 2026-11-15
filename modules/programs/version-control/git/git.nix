@@ -151,8 +151,7 @@ in
           ".DS_Store"
         ];
 
-        # Machine-specific settings that stay out of the repository. Included last, so they win over
-        # the other includes.
+        # Machine-specific settings that stay out of the repository.
         includes = lib.mkAfter [ { path = "${config.xdg.configHome}/git/local.gitconfig"; } ];
       };
     };

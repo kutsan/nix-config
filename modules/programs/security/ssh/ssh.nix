@@ -4,7 +4,6 @@
       enable = true;
       enableDefaultConfig = false;
 
-      # Written above every host, so they apply everywhere.
       extraOptionOverrides = {
         UserKnownHostsFile = [
           "~/.ssh/known_hosts"
@@ -15,7 +14,6 @@
         HashKnownHosts = true;
       };
 
-      # Hosts kept only on this machine. Included before the hosts below, so they win.
       includes = [ "conf/hosts-local.ssh" ];
 
       settings.github = {

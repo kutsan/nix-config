@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      url = "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/0.1";
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
