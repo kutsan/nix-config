@@ -1,7 +1,7 @@
 ---
 whiskers:
   version: "^2.9.0"
-  filename: "modules/programs/zed/themes/poisonbloom.json"
+  filename: "modules/programs/editors/zed/themes/poisonbloom.json"
   hex_format: "#{{r}}{{g}}{{b}}{{z}}"
 accent: "blue"
 variant: ""

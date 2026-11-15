@@ -3,7 +3,7 @@ whiskers:
   version: "^2.9.0"
   matrix:
     - flavor: ["latte", "mocha"]
-  filename: "modules/programs/bat/themes/Poisonbloom {% if flavor.dark %}Dark{% else %}Light{% endif %}.tmTheme"
+  filename: "modules/programs/files/bat/themes/Poisonbloom {% if flavor.dark %}Dark{% else %}Light{% endif %}.tmTheme"
   hex_format: "#{{r}}{{g}}{{b}}"
 ---
 <?xml version="1.0" encoding="UTF-8"?>

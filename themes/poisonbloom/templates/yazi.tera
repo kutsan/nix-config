@@ -3,7 +3,7 @@ whiskers:
   version: "^2.2.0"
   matrix:
     - flavor: ["latte", "mocha"]
-  filename: "modules/programs/yazi/flavors/poisonbloom-{% if flavor.dark %}dark{% else %}light{% endif %}/flavor.toml"
+  filename: "modules/programs/files/yazi/flavors/poisonbloom-{% if flavor.dark %}dark{% else %}light{% endif %}/flavor.toml"
   hex_format: "#{{r}}{{g}}{{b}}{{z}}"
 accent: "blue"
 ---

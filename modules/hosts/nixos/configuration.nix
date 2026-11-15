@@ -2,23 +2,7 @@
 {
   flake.modules.nixos.nixos = {
     imports = with inputs.self.modules.nixos; [
-      system-default
-
-      kutsan
-
-      cli
-      cloud
-      containers
-      dev-tools
-      direnv
-      disks
-      encryption
-      git
-      media
-      neovim
-      network
-      notes
-      zsh
+      system-cli
     ];
 
     system.stateVersion = "26.11";

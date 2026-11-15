@@ -41,30 +41,6 @@ in
   flake.modules.homeManager.${username} =
     { config, ... }:
     {
-      imports = with inputs.self.modules.homeManager; [
-        system-default
-
-        ai
-        atuin
-        bat
-        claude-code
-        delta
-        editorconfig
-        fzf
-        git
-        gnupg
-        lazydocker
-        lazygit
-        less
-        neovim
-        rumdl
-        ssh
-        wallpapers
-        yazi
-        zoxide
-        zsh
-      ];
-
       programs.git.settings.user = {
         name = "Kutsan Kaplan";
         email = "me@kutsan.dev";

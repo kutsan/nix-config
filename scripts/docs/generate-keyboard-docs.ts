@@ -18,7 +18,7 @@ interface BuildTarget {
 
 const SCRIPT_DIR = import.meta.dirname
 const REPO_ROOT = join(SCRIPT_DIR, '..', '..')
-const USERSPACE_DIR = join(REPO_ROOT, 'modules', 'programs', 'qmk', 'userspace')
+const USERSPACE_DIR = join(REPO_ROOT, 'modules', 'system', 'settings', 'keyboard', 'userspace')
 const ASSETS_DIR = join(REPO_ROOT, '.github', 'assets')
 const README_PATH = join(REPO_ROOT, 'README.md')
 const KEYMAP_CONFIG = join(SCRIPT_DIR, 'keymap-config.yaml')

@@ -1,43 +1,25 @@
 { inputs, ... }:
-let
-  configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-
-  # Unfree packages are allowed by name only, all of them listed here.
-  unfreePackages =
-    { lib, ... }:
-    {
-      nixpkgs.config.allowUnfreePredicate =
-        pkg:
-        builtins.elem (lib.getName pkg) [
-          "copilot-language-server"
-        ];
-    };
-in
 {
   flake.modules.nixos.system-default = {
     imports =
       with inputs.self.modules.nixos;
       [
+        system-minimal
         home-manager
       ]
       ++ (with inputs.self.modules.generic; [
         pkgs-by-name
         system-constants
-      ])
-      ++ [ unfreePackages ];
+      ]);
 
-    system.configurationRevision = configurationRevision;
-
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    home-manager.sharedModules = [ inputs.self.modules.homeManager.system-default ];
   };
 
   flake.modules.darwin.system-default = {
     imports =
       with inputs.self.modules.darwin;
       [
+        system-minimal
         determinate
         home-manager
         homebrew
@@ -45,24 +27,20 @@ in
       ++ (with inputs.self.modules.generic; [
         pkgs-by-name
         system-constants
-      ])
-      ++ [ unfreePackages ];
+      ]);
 
-    system.configurationRevision = configurationRevision;
+    home-manager.sharedModules = [ inputs.self.modules.homeManager.system-default ];
   };
 
   flake.modules.homeManager.system-default = {
     imports =
       with inputs.self.modules.homeManager;
       [
+        system-minimal
         sops-nix
       ]
       ++ (with inputs.self.modules.generic; [
         system-constants
       ]);
-
-    home.stateVersion = "26.11";
-
-    xdg.enable = true;
   };
 }
