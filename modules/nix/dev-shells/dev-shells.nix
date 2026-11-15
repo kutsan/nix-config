@@ -2,6 +2,8 @@
   perSystem =
     { pkgs, ... }:
     let
+      env.NEOVIM_RUNTIME = "${pkgs.neovim-unwrapped}/share/nvim/runtime";
+
       sharedShell = pkgs.mkShellNoCC {
         packages = with pkgs; [
           actionlint
@@ -9,7 +11,6 @@
           git
           just
           lua-language-server
-          neovim
           nixfmt
           pinact
           selene
@@ -23,6 +24,7 @@
     {
       devShells = {
         default = pkgs.mkShellNoCC {
+          inherit env;
           inputsFrom = [ sharedShell ];
           packages = with pkgs; [
             catppuccin-whiskers
@@ -34,6 +36,7 @@
         };
 
         ci = pkgs.mkShellNoCC {
+          inherit env;
           inputsFrom = [ sharedShell ];
         };
       };

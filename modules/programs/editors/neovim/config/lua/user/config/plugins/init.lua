@@ -51,6 +51,7 @@ local plugins = {
 	{ 'highlight_colors' },
 	{ 'color_converter' },
 	{ 'mini_indentscope' },
+	{ 'render_markdown' },
 	{ 'snacks' },
 	{ 'tiny_cmdline', requires = { 'blink_cmp' } },
 

@@ -73,10 +73,6 @@ update-pinact:
 update-nix:
     nix flake update
 
-[group('docs')]
-docs-generate-keyboard-docs:
-    node scripts/docs/generate-keyboard-docs.ts
-
 [group('themes')]
 themes-generate: && format
     bash scripts/themes/generate.sh

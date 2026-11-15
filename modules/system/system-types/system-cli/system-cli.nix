@@ -25,7 +25,6 @@ let
       mise
       neovim
       nmap
-      nodejs
       ripgrep
       sops
       tokei

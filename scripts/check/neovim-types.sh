@@ -5,17 +5,8 @@ IFS=$'\n\t'
 
 readonly NVIM_CONFIG_DIR="modules/programs/editors/neovim/config"
 
-resolve_neovim_runtime_path() {
-	nvim --clean --headless \
-		--cmd 'lua io.write(vim.env.VIMRUNTIME)' \
-		--cmd 'quit' 2>/dev/null
-}
-
 main() {
-	local neovim_runtime_path
-	neovim_runtime_path=$(resolve_neovim_runtime_path)
-
-	VIMRUNTIME="$neovim_runtime_path" \
+	VIMRUNTIME="${NEOVIM_RUNTIME:?run inside the dev shell}" \
 		lua-language-server --check "$NVIM_CONFIG_DIR"
 }
 
