@@ -14,7 +14,7 @@
     {
       programs.yazi = {
         enable = true;
-        enableZshIntegration = false;
+        shellWrapperName = "r";
 
         settings = {
           mgr = {

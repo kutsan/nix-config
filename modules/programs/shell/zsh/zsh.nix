@@ -66,12 +66,6 @@ in
         # Zsh Config
         SHELL_SESSIONS_DISABLE = "1";
 
-        # Defaults
-        LANG = "en_US.UTF-8";
-        EDITOR = "nvim";
-        GUI_EDITOR = "zed";
-        FILE_MANAGER = "yazi";
-
         # ls
         LS_COLORS = lib.fileContents ./ls-colors;
 

@@ -22,7 +22,6 @@ let
       gptfdisk
       imagemagick
       jq
-      mise
       neovim
       nmap
       ripgrep
@@ -54,6 +53,8 @@ in
       lazydocker
       lazygit
       less
+      mise
+      rumdl
       ssh
       yazi
       zoxide

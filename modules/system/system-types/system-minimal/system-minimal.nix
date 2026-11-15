@@ -26,6 +26,7 @@ in
 
   flake.modules.homeManager.system-minimal = {
     home.stateVersion = "26.11";
+    home.language.base = "en_US.UTF-8";
 
     xdg.enable = true;
   };

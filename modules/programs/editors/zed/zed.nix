@@ -9,6 +9,8 @@
   };
 
   flake.modules.homeManager.zed = {
+    home.sessionVariables.GUI_EDITOR = "zed";
+
     programs.zed-editor = {
       enable = true;
       package = null;

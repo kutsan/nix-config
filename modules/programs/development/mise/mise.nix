@@ -1,13 +1,5 @@
-let
-  sharedModule =
-    { pkgs, ... }:
-    {
-      environment.systemPackages = with pkgs; [
-        mise
-      ];
-    };
-in
 {
-  flake.modules.nixos.mise = sharedModule;
-  flake.modules.darwin.mise = sharedModule;
+  flake.modules.homeManager.mise = {
+    programs.mise.enable = true;
+  };
 }

@@ -25,7 +25,6 @@ in
           init.defaultBranch = "main";
 
           core = {
-            editor = "$EDITOR";
             whitespace = "space-before-tab,-indent-with-non-tab,trailing-space";
           };
 

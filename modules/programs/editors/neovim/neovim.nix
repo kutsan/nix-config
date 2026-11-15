@@ -20,6 +20,7 @@ in
     {
       programs.neovim = {
         enable = true;
+        defaultEditor = true;
 
         withNodeJs = false;
         withPerl = false;
@@ -208,12 +209,11 @@ in
         ];
       };
 
+      home.sessionVariables.MANPAGER = "nvim +Man!";
+
       xdg.configFile.nvim.source = lib.fileset.toSource {
         root = ./config;
         fileset = lib.fileset.fileFilter (file: !lib.hasPrefix "." file.name) ./config;
       };
-
-      # Default rules for rumdl, the Markdown language server above, in projects without their own.
-      home.file.".rumdl.toml".source = ./rumdl.toml;
     };
 }

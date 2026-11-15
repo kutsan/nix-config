@@ -14,24 +14,6 @@ if command -v trash &>/dev/null; then
 	alias rm='trash'
 fi
 
-# `cd` into the last directory upon exit using the file manager.
-r() {
-	emulate -L zsh
-	# shellcheck disable=SC2155
-	local temp_cwd_file="$(mktemp -t "file-manager-cwd.XXXXXX")"
-	# shellcheck disable=SC2064,SC2296
-	trap "command rm -f -- ${(q)temp_cwd_file}" EXIT INT TERM
-
-	command $FILE_MANAGER "$@" --cwd-file="$temp_cwd_file"
-	# shellcheck disable=SC2155
-	local cwd="$(<"$temp_cwd_file")"
-
-	# shellcheck disable=SC2164
-	if [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
-		builtin cd -- "$cwd"
-	fi
-}
-
 # Create a temporary directory and `cd` into it.
 scratch() {
 	local dir
@@ -76,11 +58,6 @@ alias pn='pnpm'
 # Git
 alias g='git'
 compdef g='git'
-alias lg='lazygit'
-alias lgs='lazygit status'
-alias lgl='lazygit log'
-alias lgb='lazygit branch'
-alias lgt='lazygit stash'
 
 # shellcheck disable=SC2190
 typeset -A git_aliases=(
