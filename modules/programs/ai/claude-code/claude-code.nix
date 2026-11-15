@@ -30,6 +30,9 @@
             verbs = [ "Working" ];
           };
 
+          syncClaudeAiPlugins = false;
+          syncClaudeAiSkills = false;
+
           enabledPlugins = {
             "security-guidance@claude-plugins-official" = true;
             "claude-code-setup@claude-plugins-official" = true;

@@ -20,10 +20,6 @@
 
       kitsDirectory = "sbx/kits";
 
-      claudeSettings = lib.recursiveUpdate config.programs.claude-code.settings {
-        enabledPlugins."kutsan-skills@synced" = false;
-      };
-
       kits = {
         claude-config = {
           displayName = "Claude Code configuration";
@@ -35,7 +31,7 @@
               config.files = [
                 {
                   path = "/etc/claude-code/managed-settings.d/nix-config.json";
-                  content = builtins.toJSON claudeSettings;
+                  content = builtins.toJSON config.programs.claude-code.settings;
                   mode = "0644";
                   description = "Claude Code settings, as managed settings";
                 }
@@ -131,12 +127,13 @@
     {
       home.sessionVariables.SBX_NO_TELEMETRY = "1";
 
-      home.file = {
-        ".sbxenv.yaml".source = environment;
+      home.file.".sbxenv.yaml".source = environment;
 
-        "Library/Application Support/com.docker.sandboxes/sandboxes/agent-skills".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.agents/skills";
-      };
+      home.activation.sbxSkills = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        run mkdir -p "$HOME/Library/Application Support/com.docker.sandboxes/sandboxes/agent-skills"
+        run ${lib.getExe pkgs.rsync} $VERBOSE_ARG --archive --delete --chmod=u+w \
+          ${pkgs.local.kutsan-skills}/share/skills/ "$HOME/Library/Application Support/com.docker.sandboxes/sandboxes/agent-skills/"
+      '';
 
       xdg.configFile = lib.mapAttrs' (
         name: descriptor:
