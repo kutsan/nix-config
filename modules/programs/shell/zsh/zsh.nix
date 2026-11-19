@@ -57,6 +57,8 @@ in
             source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
             source ${./plugins/fast-syntax-highlighting.zsh}
           '')
+
+          (lib.mkOrder 1200 "source ${./config}/aliases.zsh")
         ];
       };
 
