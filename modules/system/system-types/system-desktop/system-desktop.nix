@@ -15,29 +15,20 @@
       system-cli
 
       asimov
-      audacity
-      backblaze
-      blender
       claude
       datagrip
-      discord
       docker-desktop
       figma
       fonts
       ghostty
       google-chrome
-      handbrake
       iina
       insta360-link-controller
       keepingyouawake
       keyboard
-      ledger-wallet
       mas
       mole-cleaner
       neodisk
-      netnewswire
-      obs
-      orcaslicer
       proxyman
       qmk
       sbx
@@ -46,7 +37,6 @@
       skhd
       skim
       tldraw
-      transmission
       ukelele
       yabai
       zed

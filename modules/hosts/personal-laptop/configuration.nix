@@ -1,13 +1,12 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.nixos = {
+  flake.modules.nixos.personal-laptop = {
     imports = with inputs.self.modules.nixos; [
-      system-cli
+      system-desktop
+      personal
     ];
 
     system.stateVersion = "26.11";
-
-    networking.hostName = "nixos";
 
     boot.loader.systemd-boot.enable = true;
     fileSystems."/" = {

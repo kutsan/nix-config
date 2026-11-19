@@ -23,7 +23,10 @@
         ${host} = inputs.nixpkgs.lib.nixosSystem {
           modules = [
             inputs.self.modules.nixos.${host}
-            { nixpkgs.hostPlatform = lib.mkDefault system; }
+            {
+              nixpkgs.hostPlatform = lib.mkDefault system;
+              networking.hostName = lib.mkDefault host;
+            }
           ];
         };
       };

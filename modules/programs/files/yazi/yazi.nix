@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.yazi =
-    { pkgs, ... }:
+    { lib, pkgs, ... }:
     let
       bind = on: run: { inherit on run; };
 
@@ -165,7 +165,6 @@
           (bind [ "b" "x" "a" ] "cd $XDG_CACHE_HOME")
           (bind [ "b" "x" "d" ] "cd $XDG_DATA_HOME")
           (bind [ "b" "x" "s" ] "cd $XDG_STATE_HOME")
-          (bind [ "b" "i" ] "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs")
           (bind [ "b" "c" ] "cd /etc/nix-darwin")
 
           # Tabs
@@ -199,6 +198,9 @@
 
           # Zoxide
           (bind "<C-k>" "plugin zoxide")
+        ]
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+          (bind [ "b" "i" ] "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs")
         ];
 
         initLua = ./init.lua;

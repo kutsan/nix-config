@@ -21,7 +21,14 @@ in
         enable = true;
         package = null;
 
+        signing.key = config.identity.signingKey;
+
         settings = {
+          user = {
+            name = config.identity.fullName;
+            inherit (config.identity) email;
+          };
+
           init.defaultBranch = "main";
 
           core = {
@@ -69,7 +76,7 @@ in
           };
 
           commit = {
-            gpgsign = true;
+            gpgsign = config.identity.signingKey != null;
             verbose = true;
           };
 
@@ -146,7 +153,7 @@ in
         };
 
         ignores = [
-          "# Operating System Files"
+          # Operating System Files
           ".DS_Store"
         ];
 

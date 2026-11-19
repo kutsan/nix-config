@@ -33,14 +33,10 @@
   };
 
   flake.modules.homeManager.system-default = {
-    imports =
-      with inputs.self.modules.homeManager;
-      [
-        system-minimal
-        sops-nix
-      ]
-      ++ (with inputs.self.modules.generic; [
-        system-constants
-      ]);
+    imports = with inputs.self.modules.homeManager; [
+      system-minimal
+      sops-nix
+      identity
+    ];
   };
 }

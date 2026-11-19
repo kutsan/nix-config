@@ -1,8 +1,10 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.nixos = {
+  flake.modules.nixos.personal-laptop = {
     imports = with inputs.self.modules.nixos; [
       kutsan
     ];
+
+    systemConstants.username = "kutsan";
   };
 }

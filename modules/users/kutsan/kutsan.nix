@@ -1,14 +1,19 @@
 { inputs, ... }:
 let
-  username = "kutsan";
-
-  sharedModule = {
-    home-manager.users.${username}.imports = [ inputs.self.modules.homeManager.${username} ];
-  };
+  sharedModule =
+    { config, ... }:
+    {
+      home-manager.users.${config.systemConstants.username}.imports = [
+        inputs.self.modules.homeManager.kutsan
+      ];
+    };
 in
 {
-  flake.modules.nixos.${username} =
-    { pkgs, ... }:
+  flake.modules.nixos.kutsan =
+    { config, pkgs, ... }:
+    let
+      username = config.systemConstants.username;
+    in
     {
       imports = [ sharedModule ];
 
@@ -19,8 +24,10 @@ in
       };
     };
 
-  flake.modules.darwin.${username} =
+  flake.modules.darwin.kutsan =
+    { config, ... }:
     let
+      username = config.systemConstants.username;
       loginShell = "/run/current-system/sw/bin/zsh";
     in
     {
@@ -38,16 +45,14 @@ in
       '';
     };
 
-  flake.modules.homeManager.${username} =
+  flake.modules.homeManager.kutsan =
     { config, ... }:
     {
-      programs.git = {
-        settings.user = {
-          name = "Kutsan Kaplan";
-          email = "me@kutsan.dev";
-        };
-
-        signing.key = "24D78A1B";
+      identity = {
+        fullName = "Kutsan Kaplan";
+        email = "me@kutsan.dev";
+        website = "https://kutsan.dev";
+        signingKey = "24D78A1B";
       };
 
       sops = {

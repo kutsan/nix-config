@@ -74,12 +74,12 @@ in
         DO_NOT_TRACK = "1";
 
         # npm
-        NPM_CONFIG_INIT_AUTHOR_NAME = "Kutsan Kaplan";
-        NPM_CONFIG_INIT_AUTHOR_EMAIL = "me@kutsan.dev";
-        NPM_CONFIG_INIT_AUTHOR_URL = "https://kutsan.dev";
+        NPM_CONFIG_INIT_AUTHOR_NAME = config.identity.fullName;
+        NPM_CONFIG_INIT_AUTHOR_EMAIL = config.identity.email;
+        NPM_CONFIG_INIT_AUTHOR_URL = config.identity.website;
         NPM_CONFIG_INIT_LICENSE = "MIT";
         NPM_CONFIG_INIT_VERSION = "0.0.0";
-        NPM_CONFIG_SIGN_GIT_TAG = "true";
+        NPM_CONFIG_SIGN_GIT_TAG = lib.boolToString (config.identity.signingKey != null);
 
         # Rust
         CARGO_HOME = "${config.xdg.dataHome}/cargo";

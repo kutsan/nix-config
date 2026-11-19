@@ -8,9 +8,5 @@
           description = "The user who owns the machine.";
         };
       };
-
-      config.systemConstants = {
-        username = "kutsan";
-      };
     };
 }
