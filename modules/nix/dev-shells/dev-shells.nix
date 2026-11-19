@@ -28,7 +28,6 @@
           inputsFrom = [ sharedShell ];
           packages = with pkgs; [
             catppuccin-whiskers
-            keymap-drawer
             nh
             qmk
           ];
