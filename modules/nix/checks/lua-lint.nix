@@ -1,11 +1,11 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, pkgs, ... }:
+    { pkgs, ... }:
     {
-      checks.lua-lint = pkgs.runCommand "check-lua-lint" { } ''
+      checks.lua-lint = pkgs.runCommand "check-lua-lint" { nativeBuildInputs = [ pkgs.selene ]; } ''
         cd ${inputs.self}/modules/programs/editors/neovim/config
-        ${lib.getExe pkgs.selene} .
+        selene .
         touch "$out"
       '';
     };

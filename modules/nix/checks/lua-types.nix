@@ -1,13 +1,21 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, pkgs, ... }:
+    { pkgs, ... }:
     {
-      checks.lua-types = pkgs.runCommand "check-lua-types" { } ''
-        cd ${inputs.self}
-        VIMRUNTIME=${pkgs.neovim-unwrapped}/share/nvim/runtime \
-          ${lib.getExe pkgs.lua-language-server} --check modules/programs/editors/neovim/config
-        touch "$out"
-      '';
+      checks.lua-types =
+        pkgs.runCommand "check-lua-types"
+          {
+            nativeBuildInputs = with pkgs; [
+              lua-language-server
+              writableTmpDirAsHomeHook
+            ];
+            env.VIMRUNTIME = "${pkgs.neovim-unwrapped}/share/nvim/runtime";
+          }
+          ''
+            cd ${inputs.self}
+            lua-language-server --check modules/programs/editors/neovim/config
+            touch "$out"
+          '';
     };
 }

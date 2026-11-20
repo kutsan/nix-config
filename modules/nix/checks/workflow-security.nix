@@ -1,13 +1,15 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, pkgs, ... }:
+    { pkgs, ... }:
     {
-      checks.workflow-security = pkgs.runCommand "check-workflow-security" { } ''
-        cd ${inputs.self}
-        ${lib.getExe pkgs.zizmor} --offline --strict-collection .github/workflows/
-        touch "$out"
-      '';
+      checks.workflow-security =
+        pkgs.runCommand "check-workflow-security" { nativeBuildInputs = [ pkgs.zizmor ]; }
+          ''
+            cd ${inputs.self}
+            zizmor --offline --strict-collection .github/workflows/
+            touch "$out"
+          '';
 
       apps.workflow-security-online = {
         program = pkgs.writeShellApplication {

@@ -1,13 +1,21 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, pkgs, ... }:
+    { pkgs, ... }:
     {
-      checks.workflow-pins = pkgs.runCommand "check-workflow-pins" { } ''
-        cd ${inputs.self}
-        HOME="$TMPDIR" ${lib.getExe pkgs.pinact} run --fix=false --no-api
-        touch "$out"
-      '';
+      checks.workflow-pins =
+        pkgs.runCommand "check-workflow-pins"
+          {
+            nativeBuildInputs = with pkgs; [
+              pinact
+              writableTmpDirAsHomeHook
+            ];
+          }
+          ''
+            cd ${inputs.self}
+            pinact run --fix=false --no-api
+            touch "$out"
+          '';
 
       apps.workflow-pins-update = {
         program = pkgs.writeShellApplication {
