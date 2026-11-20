@@ -1,13 +1,13 @@
+{ inputs, ... }:
 {
   perSystem =
-    { pkgs, mkSandboxCheck, ... }:
+    { lib, pkgs, ... }:
     {
-      checks.lua-types = mkSandboxCheck "lua-types" {
-        tools = [ pkgs.lua-language-server ];
-        script = ''
-          VIMRUNTIME=${pkgs.neovim-unwrapped}/share/nvim/runtime \
-            lua-language-server --check modules/programs/editors/neovim/config
-        '';
-      };
+      checks.lua-types = pkgs.runCommand "check-lua-types" { } ''
+        cd ${inputs.self}
+        VIMRUNTIME=${pkgs.neovim-unwrapped}/share/nvim/runtime \
+          ${lib.getExe pkgs.lua-language-server} --check modules/programs/editors/neovim/config
+        touch "$out"
+      '';
     };
 }

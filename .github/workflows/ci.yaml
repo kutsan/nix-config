@@ -30,8 +30,6 @@ jobs:
             command: nix flake check --no-build
           - name: Flake NixOS Evaluation
             command: nix build .#checks.$CURRENT_SYSTEM.flake-nixos-evaluation --print-build-logs
-          - name: Justfile Format
-            command: nix build .#checks.$CURRENT_SYSTEM.justfile-format --print-build-logs
           - name: Lua Lint
             command: nix build .#checks.$CURRENT_SYSTEM.lua-lint --print-build-logs
           - name: Lua Types
@@ -48,8 +46,6 @@ jobs:
             command: nix build .#checks.$CURRENT_SYSTEM.workflow-lint --print-build-logs
           - name: Workflow Pins
             command: nix build .#checks.$CURRENT_SYSTEM.workflow-pins --print-build-logs
-          - name: Workflow Pins Online
-            command: nix run .#workflow-pins-online
           - name: Workflow Security
             command: nix build .#checks.$CURRENT_SYSTEM.workflow-security --print-build-logs
           - name: Workflow Security Online

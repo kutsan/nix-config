@@ -1,10 +1,10 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, mkEvaluationCheck, ... }:
+    { lib, pkgs, ... }:
     {
-      checks.flake-nixos-evaluation = mkEvaluationCheck "flake-nixos-evaluation" (
-        lib.mapAttrs (_: host: host.config.system.build.toplevel.drvPath) inputs.self.nixosConfigurations
-      );
+      checks.flake-nixos-evaluation = builtins.deepSeq (lib.mapAttrs (
+        _: host: host.config.system.build.toplevel.drvPath
+      ) inputs.self.nixosConfigurations) pkgs.emptyFile;
     };
 }

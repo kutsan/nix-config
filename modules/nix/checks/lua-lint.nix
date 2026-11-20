@@ -1,13 +1,12 @@
+{ inputs, ... }:
 {
   perSystem =
-    { pkgs, mkSandboxCheck, ... }:
+    { lib, pkgs, ... }:
     {
-      checks.lua-lint = mkSandboxCheck "lua-lint" {
-        tools = [ pkgs.selene ];
-        script = ''
-          cd modules/programs/editors/neovim/config
-          selene .
-        '';
-      };
+      checks.lua-lint = pkgs.runCommand "check-lua-lint" { } ''
+        cd ${inputs.self}/modules/programs/editors/neovim/config
+        ${lib.getExe pkgs.selene} .
+        touch "$out"
+      '';
     };
 }

@@ -1,10 +1,10 @@
 { inputs, ... }:
 {
   perSystem =
-    { lib, mkEvaluationCheck, ... }:
+    { lib, pkgs, ... }:
     {
-      checks.flake-darwin-evaluation = mkEvaluationCheck "flake-darwin-evaluation" (
-        lib.mapAttrs (_: host: host.config.system.build.toplevel.drvPath) inputs.self.darwinConfigurations
-      );
+      checks.flake-darwin-evaluation = builtins.deepSeq (lib.mapAttrs (
+        _: host: host.config.system.build.toplevel.drvPath
+      ) inputs.self.darwinConfigurations) pkgs.emptyFile;
     };
 }

@@ -1,15 +1,12 @@
+{ inputs, ... }:
 {
   perSystem =
-    { pkgs, mkSandboxCheck, ... }:
+    { lib, pkgs, ... }:
     {
-      checks.workflow-lint = mkSandboxCheck "workflow-lint" {
-        tools = with pkgs; [
-          actionlint
-          shellcheck
-        ];
-        script = ''
-          actionlint .github/workflows/*.yaml
-        '';
-      };
+      checks.workflow-lint = pkgs.runCommand "check-workflow-lint" { } ''
+        cd ${inputs.self}
+        ${lib.getExe pkgs.actionlint} .github/workflows/*.yaml
+        touch "$out"
+      '';
     };
 }

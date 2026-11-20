@@ -6,7 +6,6 @@
         packages = with pkgs; [
           bash
           catppuccin-whiskers
-          just
           nh
           qmk
         ];
