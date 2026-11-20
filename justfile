@@ -2,76 +2,32 @@ set shell := ["bash", "-c"]
 set default-list
 
 [group('check')]
+check:
+    nix flake check --keep-going
+
+[group('check')]
 [parallel]
-check: check-shellcheck check-selene check-neovim-types check-zizmor check-pinact check-shfmt check-tombi check-actionlint check-nix check-just
+check-online: check-workflow-pins-online check-workflow-security-online
 
 [group('check')]
-check-shellcheck:
-    bash scripts/check/shellcheck.sh
+check-workflow-pins-online:
+    nix run .#workflow-pins-online
 
 [group('check')]
-check-selene:
-    bash scripts/check/selene.sh
-
-[group('check')]
-check-neovim-types:
-    bash scripts/check/neovim-types.sh
-
-[group('check')]
-check-zizmor:
-    zizmor --strict-collection .github/workflows/
-
-[group('check')]
-check-pinact:
-    pinact run --check --verify
-
-[group('check')]
-check-shfmt:
-    bash scripts/check/shfmt.sh
-
-[group('check')]
-check-tombi:
-    tombi format --check
-
-[group('check')]
-check-actionlint:
-    actionlint
-
-[group('check')]
-check-nix:
-    bash scripts/check/nix.sh
-
-[group('check')]
-check-just:
-    just --fmt --check
+check-workflow-security-online:
+    nix run .#workflow-security-online
 
 [group('format')]
-[parallel]
-format: format-shfmt format-tombi format-nix format-just
-
-[group('format')]
-format-shfmt:
-    bash scripts/format/shfmt.sh
-
-[group('format')]
-format-tombi:
-    tombi format
-
-[group('format')]
-format-nix:
+format:
     nix fmt
 
-[group('format')]
-format-just:
-    just --fmt
-
 [group('update')]
-update-pinact:
-    pinact run --update
-
-[group('update')]
-update-nix:
+update-flake:
     nix flake update
+
+[group('update')]
+update-workflow-pins:
+    nix run .#workflow-pins-update
 
 [group('themes')]
 themes-generate: && format

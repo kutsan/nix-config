@@ -24,26 +24,36 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Shellcheck
-            command: check-shellcheck
-          - name: Selene
-            command: check-selene
-          - name: Neovim Types
-            command: check-neovim-types
-          - name: Zizmor
-            command: check-zizmor
-          - name: Pinact
-            command: check-pinact
-          - name: Shfmt
-            command: check-shfmt
-          - name: Tombi
-            command: check-tombi
-          - name: Actionlint
-            command: check-actionlint
-          - name: Nix
-            command: check-nix
-          - name: Just
-            command: check-just
+          - name: Flake Darwin Evaluation
+            command: nix build .#checks.$CURRENT_SYSTEM.flake-darwin-evaluation --print-build-logs
+          - name: Flake Evaluation
+            command: nix flake check --no-build
+          - name: Flake NixOS Evaluation
+            command: nix build .#checks.$CURRENT_SYSTEM.flake-nixos-evaluation --print-build-logs
+          - name: Justfile Format
+            command: nix build .#checks.$CURRENT_SYSTEM.justfile-format --print-build-logs
+          - name: Lua Lint
+            command: nix build .#checks.$CURRENT_SYSTEM.lua-lint --print-build-logs
+          - name: Lua Types
+            command: nix build .#checks.$CURRENT_SYSTEM.lua-types --print-build-logs
+          - name: Nix Format
+            command: nix build .#checks.$CURRENT_SYSTEM.nix-format --print-build-logs
+          - name: Shell Format
+            command: nix build .#checks.$CURRENT_SYSTEM.shell-format --print-build-logs
+          - name: Shell Lint
+            command: nix build .#checks.$CURRENT_SYSTEM.shell-lint --print-build-logs
+          - name: TOML Format
+            command: nix build .#checks.$CURRENT_SYSTEM.toml-format --print-build-logs
+          - name: Workflow Lint
+            command: nix build .#checks.$CURRENT_SYSTEM.workflow-lint --print-build-logs
+          - name: Workflow Pins
+            command: nix build .#checks.$CURRENT_SYSTEM.workflow-pins --print-build-logs
+          - name: Workflow Pins Online
+            command: nix run .#workflow-pins-online
+          - name: Workflow Security
+            command: nix build .#checks.$CURRENT_SYSTEM.workflow-security --print-build-logs
+          - name: Workflow Security Online
+            command: nix run .#workflow-security-online
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -59,4 +69,7 @@ jobs:
         env:
           COMMAND: ${{ matrix.command }}
           GITHUB_TOKEN: ${{ github.token }}
-        run: nix develop .#ci --command just "$COMMAND"
+        run: |
+          CURRENT_SYSTEM=$(nix config show system)
+          export CURRENT_SYSTEM
+          eval "$COMMAND"
