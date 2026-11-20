@@ -28,11 +28,16 @@
           capabilities = [
             {
               type = "com.docker.sandbox/lifecycle@1";
-              config.files = [
+              config.install = [
                 {
-                  path = "/etc/claude-code/managed-settings.d/nix-config.json";
-                  content = builtins.toJSON config.programs.claude-code.settings;
-                  mode = "0644";
+                  command = [
+                    "sh"
+                    "-c"
+                    ''umask 022 && mkdir --parents /etc/claude-code/managed-settings.d && printf '%s\n' "$1" > /etc/claude-code/managed-settings.d/nix-config.json''
+                    "sh"
+                    (builtins.toJSON config.programs.claude-code.settings)
+                  ];
+                  user = "0";
                   description = "Claude Code settings, as managed settings";
                 }
               ];
@@ -93,7 +98,7 @@
 
       mkKit =
         { name, descriptor }:
-        pkgs.concatText "spec.yaml" [
+        pkgs.concatText "${name}.yaml" [
           (pkgs.writeText "kit-syntax" "# syntax=docker/sandbox-kit:3\n")
           (yaml.generate "${name}-kit.yaml" (
             {
@@ -137,7 +142,7 @@
 
       xdg.configFile = lib.mapAttrs' (
         name: descriptor:
-        lib.nameValuePair "${kitsDirectory}/${name}/spec.yaml" {
+        lib.nameValuePair "${kitsDirectory}/${name}/${name}.yaml" {
           source = mkKit { inherit name descriptor; };
         }
       ) kits;
