@@ -1,6 +1,16 @@
 { inputs, ... }:
 {
   flake.modules.darwin.keyboard = {
+    system.keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
+
+    system.defaults = {
+      NSGlobalDomain.AppleKeyboardUIMode = 2;
+      hitoolbox.AppleFnUsageType = "Do Nothing";
+    };
+
     home-manager.sharedModules = [ inputs.self.modules.homeManager.keyboard ];
   };
 

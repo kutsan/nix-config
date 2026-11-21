@@ -17,10 +17,12 @@ in
       blender
       discord
       handbrake
+      hyperduck
       ledger-wallet
       netnewswire
       obs
       orcaslicer
+      parachute-backup
       transmission
     ]);
   };

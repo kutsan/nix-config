@@ -14,14 +14,17 @@
     imports = with inputs.self.modules.darwin; [
       system-cli
 
+      apple-mail
       asimov
       claude
       datagrip
+      desktop-environment
       docker-desktop
       figma
       fonts
       ghostty
       google-chrome
+      hand-mirror
       iina
       insta360-link-controller
       keepingyouawake

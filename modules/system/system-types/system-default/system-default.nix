@@ -23,6 +23,7 @@
         determinate
         home-manager
         homebrew
+        networking
       ]
       ++ (with inputs.self.modules.generic; [
         pkgs-by-name

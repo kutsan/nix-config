@@ -14,11 +14,17 @@ in
     ];
   };
 
-  flake.modules.darwin.system-minimal = sharedModule;
+  flake.modules.darwin.system-minimal = {
+    imports = [
+      sharedModule
+      inputs.self.modules.darwin.locale
+    ];
+  };
 
   flake.modules.homeManager.system-minimal = {
+    imports = [ inputs.self.modules.homeManager.locale ];
+
     home.stateVersion = "26.11";
-    home.language.base = "en_US.UTF-8";
 
     xdg.enable = true;
     xdg.localBinInPath = true;
