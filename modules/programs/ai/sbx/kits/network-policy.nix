@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.sbx = {
-    sbx.kits.network-policy = {
+    sbx.kits.network-policy.descriptor = {
       displayName = "Network policy";
       description = "Sites every sandbox may reach";
 
