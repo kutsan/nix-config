@@ -47,6 +47,10 @@
       url = "github:kutsan/fonts";
       flake = false;
     };
+    poisonbloom = {
+      url = "github:kutsan/poisonbloom";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

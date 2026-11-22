@@ -131,6 +131,6 @@
       };
     };
 
-    xdg.configFile."ghostty/themes".source = ./themes;
+    xdg.configFile."ghostty/themes".source = inputs.poisonbloom.lib.themes.ghostty;
   };
 }

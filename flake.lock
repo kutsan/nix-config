@@ -391,6 +391,26 @@
         "type": "github"
       }
     },
+    "poisonbloom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795353881,
+        "narHash": "sha256-tNRZPk0wXzyyg6/ymnpFYaH4wMzuQt4qFXT/KDx9HwE=",
+        "owner": "kutsan",
+        "repo": "poisonbloom",
+        "rev": "208fca213041235d6d9dee4be992ccae8e601253",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kutsan",
+        "repo": "poisonbloom",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "determinate": "determinate",
@@ -404,6 +424,7 @@
         "nixpkgs": "nixpkgs_2",
         "personal-fonts": "personal-fonts",
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",
+        "poisonbloom": "poisonbloom",
         "sops-nix": "sops-nix"
       }
     },

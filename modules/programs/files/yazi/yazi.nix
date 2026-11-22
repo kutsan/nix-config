@@ -1,15 +1,9 @@
+{ inputs, ... }:
 {
   flake.modules.homeManager.yazi =
     { lib, pkgs, ... }:
     let
       bind = on: run: { inherit on run; };
-
-      mkFlavor =
-        name: batTheme:
-        pkgs.linkFarm "${name}.yazi" {
-          "flavor.toml" = ./flavors + "/${name}/flavor.toml";
-          "tmtheme.xml" = "${../bat/themes}/${batTheme}.tmTheme";
-        };
     in
     {
       programs.yazi = {
@@ -211,10 +205,7 @@
           folder-rules = ./plugins/folder-rules;
         };
 
-        flavors = {
-          poisonbloom-dark = mkFlavor "poisonbloom-dark" "Poisonbloom Dark";
-          poisonbloom-light = mkFlavor "poisonbloom-light" "Poisonbloom Light";
-        };
+        flavors = inputs.poisonbloom.lib.themes.yazi;
       };
     };
 }

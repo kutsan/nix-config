@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   flake.modules.homeManager.bat =
     { lib, ... }:
@@ -11,7 +12,7 @@
         };
 
         themes = lib.genAttrs [ "Poisonbloom Dark" "Poisonbloom Light" ] (name: {
-          src = ./themes;
+          src = inputs.poisonbloom.lib.themes.bat;
           file = "${name}.tmTheme";
         });
       };

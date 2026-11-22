@@ -1,6 +1,3 @@
-[include]
-	path = ./themes/poisonbloom.gitconfig
-
 [delta]
 	features = poisonbloom-dark
 	hunk-header-style = omit

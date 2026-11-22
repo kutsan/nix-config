@@ -28,6 +28,12 @@ in
         # config folder below.
         sideloadInitLua = true;
 
+        initLua = ''
+          package.preload.poisonbloom = function()
+            return dofile("${inputs.poisonbloom.lib.themes.nvim}")
+          end
+        '';
+
         plugins = with pkgs.vimPlugins; [
           # Colorschemes
           # Pinned to the commit the colorscheme was made with, since the older one in nixpkgs themes

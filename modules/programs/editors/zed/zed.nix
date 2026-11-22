@@ -25,7 +25,7 @@
         "docker-compose"
       ];
 
-      themes.poisonbloom = ./themes/poisonbloom.json;
+      themes.poisonbloom = inputs.poisonbloom.lib.themes.zed;
 
       userSettings = {
         soft_wrap = "none";

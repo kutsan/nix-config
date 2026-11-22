@@ -1,5 +1,5 @@
 local catppuccin = require('catppuccin')
-local poisonbloom = require('user.config.colorschemes.poisonbloom_palette')
+local poisonbloom = require('poisonbloom')
 
 local opts = {
 	flavour = 'auto',

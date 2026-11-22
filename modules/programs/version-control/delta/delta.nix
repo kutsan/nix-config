@@ -1,15 +1,11 @@
+{ inputs, ... }:
 {
-  flake.modules.homeManager.delta =
-    { lib, ... }:
-    let
-      configDirectory = lib.fileset.toSource {
-        root = ./.;
-        fileset = lib.fileset.difference ./. ./delta.nix;
-      };
-    in
-    {
-      programs.delta.enable = true;
+  flake.modules.homeManager.delta = {
+    programs.delta.enable = true;
 
-      programs.git.includes = [ { path = "${configDirectory}/delta.gitconfig"; } ];
-    };
+    programs.git.includes = [
+      { path = inputs.poisonbloom.lib.themes.delta; }
+      { path = ./delta.gitconfig; }
+    ];
+  };
 }
