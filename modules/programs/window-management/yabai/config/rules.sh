@@ -21,7 +21,7 @@ yabai --message rule --add manage=off grid="$center" \
 yabai --message rule --add manage=off grid="$center" \
 	app="^(IINA|HandBrake|HomePass)$"
 yabai --message rule --add manage=off grid="$center" \
-	app="^(Backblaze|Pearcleaner|Parachute|Blackmagic Disk Speed Test)$"
+	app="^(Backblaze|Pearcleaner|Parachute Backup|Blackmagic Disk Speed Test)$"
 yabai --message rule --add manage=off grid="$center" \
 	app="^(Docker Desktop|Transmission|Hyperduck|Codepoint)$"
 yabai --message rule --add manage=off grid="$center" \
