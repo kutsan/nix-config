@@ -113,12 +113,9 @@ local function after_setup(snacks)
 		snacks.picker.resume,
 		{ desc = 'Resume last picker' }
 	)
-	vim.keymap.set(
-		'n',
-		'<Space>o',
-		snacks.picker.recent,
-		{ desc = 'Open recent files' }
-	)
+	vim.keymap.set('n', '<Space>o', function()
+		snacks.picker.recent({ filter = { cwd = true } })
+	end, { desc = 'Open recent files in the current directory' })
 
 	vim.api.nvim_create_autocmd('LspAttach', {
 		desc = 'Set up picker-backed LSP keymaps when an LSP client attaches to a buffer.',

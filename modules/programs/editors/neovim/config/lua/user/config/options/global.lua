@@ -1,6 +1,10 @@
 local opt = vim.opt
 
--- Global Options
+-- Shada file
+-- macOS stores /etc as /private/etc, which the default excludes, so exclude only its temporary folders.
+opt.shada:remove('r/private/')
+opt.shada:append({ 'r/private/tmp/', 'r/private/var/' })
+
 opt.mouse = table.concat({ -- Enable mouse support for normal and visual modes.
 	'n', -- Normal mode
 	'v', -- Visual mode

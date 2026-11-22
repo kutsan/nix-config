@@ -1,4 +1,3 @@
-require('user.config.options.shada')
 require('user.config.options.global')
 require('user.config.options.window')
 require('user.config.options.buffer')
