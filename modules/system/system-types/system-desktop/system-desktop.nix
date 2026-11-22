@@ -21,6 +21,7 @@
       desktop-environment
       docker-desktop
       figma
+      file-manager
       fonts
       ghostty
       google-chrome

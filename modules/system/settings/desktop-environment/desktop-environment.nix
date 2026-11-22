@@ -1,5 +1,5 @@
 let
-  defaults = {
+  darwinSystemDefaults = {
     dock = {
       autohide = true;
       mineffect = "scale";
@@ -23,12 +23,12 @@ let
 in
 {
   flake.modules.darwin.desktop-environment = {
-    system.defaults = defaults;
+    system.defaults = darwinSystemDefaults;
 
     home-manager.sharedModules = [
       {
-        xdg.stateFile."desktop-environment/defaults.json" = {
-          text = builtins.toJSON defaults;
+        xdg.stateFile."desktop-environment/darwin-system-defaults.json" = {
+          text = builtins.toJSON darwinSystemDefaults;
           onChange = ''
             /usr/bin/killall -q ControlCenter SystemUIServer WindowManager || true
           '';
