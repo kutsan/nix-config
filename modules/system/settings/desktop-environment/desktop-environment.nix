@@ -12,6 +12,7 @@ let
 
     NSGlobalDomain = {
       _HIHideMenuBar = true;
+      AppleIconAppearanceTheme = "ClearAutomatic";
       AppleShowScrollBars = "WhenScrolling";
     };
 
