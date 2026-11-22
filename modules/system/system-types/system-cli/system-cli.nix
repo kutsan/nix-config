@@ -54,7 +54,9 @@ in
       lazygit
       less
       mise
+      npm
       rumdl
+      rust
       ssh
       yazi
       zoxide
