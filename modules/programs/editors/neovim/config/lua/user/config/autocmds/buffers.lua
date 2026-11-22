@@ -141,6 +141,11 @@ vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile' }, {
 	desc = 'Disable shada marks for ignored directory paths.',
 	---@param args { match: string }
 	callback = function(args)
+		-- Shada is off, for example under sudo, so there's nothing to exclude.
+		if vim.o.shada == '' then
+			return
+		end
+
 		---@type string
 		local path = vim.fs.normalize(args.match)
 
