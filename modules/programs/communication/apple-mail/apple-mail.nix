@@ -4,7 +4,6 @@
       ProgramArguments = [
         "/usr/bin/open"
         "--background"
-        "--hide"
         "-b"
         "com.apple.mail"
       ];
