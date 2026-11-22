@@ -22,7 +22,6 @@ in
       netnewswire
       obs
       orcaslicer
-      parachute-backup
       transmission
     ]);
   };
