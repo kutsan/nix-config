@@ -1,6 +1,6 @@
 {
   flake.modules.darwin.sketchybar =
-    { lib, ... }:
+    { config, lib, ... }:
     let
       configDirectory = lib.fileset.toSource {
         root = ./.;
@@ -11,6 +11,7 @@
       services.sketchybar = {
         enable = true;
         config = "${configDirectory}/sketchybarrc";
+        extraPackages = [ config.services.yabai.package ];
       };
     };
 }
