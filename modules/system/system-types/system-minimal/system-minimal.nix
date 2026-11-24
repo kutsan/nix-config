@@ -22,7 +22,10 @@ in
   };
 
   flake.modules.homeManager.system-minimal = {
-    imports = [ inputs.self.modules.homeManager.locale ];
+    imports = with inputs.self.modules.homeManager; [
+      locale
+      manual-setup
+    ];
 
     home.stateVersion = "26.11";
 

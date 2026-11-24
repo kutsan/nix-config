@@ -1,7 +1,9 @@
 {
-  flake.modules.darwin.iina = {
-    homebrew.casks = [
-      "iina"
-    ];
-  };
+  flake.modules.darwin.iina =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.iina ];
+
+      system.defaults.CustomUserPreferences."com.colliderli.iina".SUEnableAutomaticChecks = false;
+    };
 }

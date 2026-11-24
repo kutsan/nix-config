@@ -1,4 +1,14 @@
 {
+  flake.modules.darwin.wallpapers = {
+    home-manager.sharedModules = [
+      {
+        manualSetup.wallpapers = [
+          "In **System Settings > Wallpaper**, add the folder `~/Pictures/Wallpapers`, pick a wallpaper from it and turn on **Show on all Spaces**."
+        ];
+      }
+    ];
+  };
+
   flake.modules.homeManager.wallpapers =
     { lib, pkgs, ... }:
     {

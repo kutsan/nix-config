@@ -31,6 +31,12 @@ in
             /usr/bin/killall -q Finder || true
           '';
         };
+
+        manualSetup.file-manager = [
+          "Right-click the desktop and choose **Use Stacks**."
+          "In a folder, open **View > Show View Options**, set **Sort By** to **Name** and click **Use as Defaults**."
+          "In **Downloads**, sort by **Date Added** and group by date."
+        ];
       }
     ];
   };

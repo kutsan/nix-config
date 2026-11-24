@@ -34,6 +34,12 @@ in
             /usr/bin/killall -q ControlCenter SystemUIServer WindowManager || true
           '';
         };
+
+        manualSetup.desktop-environment = [
+          "Remove the desktop widgets."
+          "Add the Notification Center widgets."
+          "Adjust the Control Center layout."
+        ];
       }
     ];
   };
