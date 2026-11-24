@@ -398,11 +398,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795353881,
-        "narHash": "sha256-tNRZPk0wXzyyg6/ymnpFYaH4wMzuQt4qFXT/KDx9HwE=",
+        "lastModified": 1795535043,
+        "narHash": "sha256-RJliBSg6c87r3ecz5otVjC7X82u5grTBfQiueU2ZIGc=",
         "owner": "kutsan",
         "repo": "poisonbloom",
-        "rev": "208fca213041235d6d9dee4be992ccae8e601253",
+        "rev": "22f02483239b2438f757eb42c8929e0af076dcf6",
         "type": "github"
       },
       "original": {

@@ -47,11 +47,12 @@
       zed
     ];
 
+    system.defaults.CustomUserPreferences."com.apple.onetimepasscodes".DeleteVerificationCodes = true;
+
     home-manager.sharedModules = [
       inputs.self.modules.homeManager.system-desktop
       {
         manualSetup.system-desktop = [
-          "In **System Settings > General > AutoFill & Passwords**, turn on **Delete After Use**."
           "In **System Settings > Accessibility > Zoom**, turn on **Use scroll gesture with modifier keys to zoom**."
           "In **System Settings > Lock Screen**, set **Require password after screen saver begins** to **Immediately**."
           "Turn off Siri suggestions for the Contacts app."
