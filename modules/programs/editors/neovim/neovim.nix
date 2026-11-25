@@ -148,6 +148,14 @@ in
         ];
 
         extraPackages = with pkgs; [
+          # Plugin Dependencies
+          curl
+          fd
+          git
+          imagemagick
+          local.codediff-watcher
+          ripgrep
+
           # JavaScript, TypeScript, CSS, HTML, JSON
           local.cssmodules-language-server
           local.stylelint-language-server

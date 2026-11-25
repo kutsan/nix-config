@@ -47,7 +47,10 @@
       zed
     ];
 
-    system.defaults.CustomUserPreferences."com.apple.onetimepasscodes".DeleteVerificationCodes = true;
+    system.defaults.CustomUserPreferences = {
+      "com.apple.onetimepasscodes".DeleteVerificationCodes = true;
+      "com.apple.suggestions".AppCanShowSiriSuggestionsBlacklist = [ "com.apple.AddressBook" ];
+    };
 
     home-manager.sharedModules = [
       inputs.self.modules.homeManager.system-desktop
@@ -55,7 +58,6 @@
         manualSetup.system-desktop = [
           "In **System Settings > Accessibility > Zoom**, turn on **Use scroll gesture with modifier keys to zoom**."
           "In **System Settings > Lock Screen**, set **Require password after screen saver begins** to **Immediately**."
-          "Turn off Siri suggestions for the Contacts app."
           "Turn on unlocking with Apple Watch."
         ];
       }

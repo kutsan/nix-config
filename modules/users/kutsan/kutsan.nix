@@ -25,9 +25,10 @@ in
     };
 
   flake.modules.darwin.kutsan =
-    { config, ... }:
+    { config, lib, ... }:
     let
       username = config.systemConstants.username;
+      userRecordPath = "/Users/${username}";
       loginShell = "/run/current-system/sw/bin/zsh";
     in
     {
@@ -38,9 +39,9 @@ in
       system.primaryUser = username;
 
       system.activationScripts.postActivation.text = ''
-        if [[ "$(/usr/bin/dscl . -read /Users/${username} UserShell)" != "UserShell: ${loginShell}" ]]; then
-          echo "setting the login shell of ${username} to ${loginShell}..." >&2
-          /usr/bin/dscl . -create /Users/${username} UserShell ${loginShell}
+        if [[ "$(/usr/bin/dscl . -read ${lib.escapeShellArg userRecordPath} UserShell)" != ${lib.escapeShellArg "UserShell: ${loginShell}"} ]]; then
+          printf '%s\n' ${lib.escapeShellArg "setting the login shell of ${username} to ${loginShell}..."} >&2
+          /usr/bin/dscl . -create ${lib.escapeShellArg userRecordPath} UserShell ${lib.escapeShellArg loginShell}
         fi
       '';
     };

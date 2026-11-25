@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<bzexclusions>
+	<!-- Exclude podcasts in the iTunes Music folder -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/iTunes/"
+		contains_2="/iTunes/iTunes Music/Podcasts/"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude podcasts in the iTunes Media folder -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/iTunes/"
+		contains_2="/iTunes/iTunes Media/Podcasts/"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Chrome's Safe Browsing data -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/Google/Chrome/"
+		contains_2="/Safe Browsing"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Chrome's history -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/Google/Chrome/Default"
+		contains_2="/History"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Chrome's thumbnails -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/Google/Chrome/Default"
+		contains_2="/Thumbnails"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Chrome's archived history -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/Google/Chrome/Default"
+		contains_2="/Archived History"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Slack's app data -->
+	<excludefname_rule
+		bzmergeblock="001"
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/Slack"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude login helper apps -->
+	<excludefname_rule
+		bzmergeblock="001"
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="LoginHelper"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="app"
+	/>
+
+	<!-- Exclude Safari's touch icons cache -->
+	<excludefname_rule
+		bzmergeblock="001"
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Safari/"
+		contains_2="/Touch Icons Cache"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Safari's favicon cache -->
+	<excludefname_rule
+		bzmergeblock="001"
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Safari/"
+		contains_2="/Favicon Cache"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Docker Desktop's container -->
+	<excludefname_rule
+		bzmergeblock="002"
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Containers/com.docker.docker/"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude Docker sandboxes -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/Library/Application Support/com.docker.sandboxes/"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude `node_modules` folders -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/node_modules/"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+
+	<!-- Exclude `.git` folders -->
+	<excludefname_rule
+		plat="mac"
+		osVers="*"
+		ruleIsOptional="t"
+		skipFirstCharThenStartsWith="Users/"
+		contains_1="/.git/"
+		contains_2="*"
+		doesNotContain="*"
+		endsWith="*"
+		hasFileExtension="*"
+	/>
+</bzexclusions>

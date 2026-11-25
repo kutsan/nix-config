@@ -110,8 +110,8 @@ in
     in
     {
       home.activation.keyboardLayouts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        run mkdir -p "$HOME/Library/Keyboard Layouts"
-        run ${lib.getExe pkgs.rsync} $VERBOSE_ARG --archive --delete --chmod=u+w \
+        run mkdir --parents -- "$HOME/Library/Keyboard Layouts"
+        run ${lib.getExe pkgs.rsync} ''${VERBOSE_ARG:+"$VERBOSE_ARG"} --archive --delete --chmod=u+w -- \
           ${keyboardLayoutFiles}/ "$HOME/Library/Keyboard Layouts/"
       '';
     };

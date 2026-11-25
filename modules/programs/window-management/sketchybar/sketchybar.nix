@@ -1,6 +1,11 @@
 {
   flake.modules.darwin.sketchybar =
-    { config, lib, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       configDirectory = lib.fileset.toSource {
         root = ./.;
@@ -11,7 +16,10 @@
       services.sketchybar = {
         enable = true;
         config = "${configDirectory}/sketchybarrc";
-        extraPackages = [ config.services.yabai.package ];
+        extraPackages = [
+          config.services.yabai.package
+          pkgs.local.macos-next-calendar-event
+        ];
       };
     };
 }

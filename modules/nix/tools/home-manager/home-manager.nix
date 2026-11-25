@@ -5,6 +5,7 @@ let
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "before-home-manager";
+      overwriteBackup = true;
     };
   };
 in

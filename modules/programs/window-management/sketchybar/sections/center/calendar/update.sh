@@ -6,11 +6,9 @@ IFS=$'\n\t'
 readonly item_name="${NAME:?}"
 
 readonly pill_name="${item_name%%.*}"
-readonly script_dir="${BASH_SOURCE[0]%/*}"
 
 readonly lookahead_minutes=720 # 12 hours
 readonly imminent_minutes=15
-readonly next_event_script="$script_dir/next-event.swift"
 
 format_countdown() {
 	local -r minutes=$1
@@ -30,7 +28,7 @@ format_countdown() {
 }
 
 helper_status=0
-event="$("$next_event_script" "$lookahead_minutes")" || helper_status=$?
+event="$(next-calendar-event "$lookahead_minutes")" || helper_status=$?
 readonly event helper_status
 
 if ((helper_status != 0)); then

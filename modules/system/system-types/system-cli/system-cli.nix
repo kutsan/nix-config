@@ -42,10 +42,8 @@ in
 
   flake.modules.homeManager.system-cli = {
     imports = with inputs.self.modules.homeManager; [
-      agents
       atuin
       bat
-      claude-code
       delta
       editorconfig
       fzf

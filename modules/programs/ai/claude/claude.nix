@@ -31,7 +31,7 @@
           inherit pkgs;
           format = "json";
           empty = "{}";
-          jqOperation = "$dynamic | .mcpServers += $static.mcpServers";
+          jqOperation = "$dynamic | .mcpServers = $static.mcpServers";
           path = "${config.home.homeDirectory}/Library/Application Support/Claude/claude_desktop_config.json";
           staticSettings = (pkgs.formats.json { }).generate "claude-desktop-config.json" settings;
         }

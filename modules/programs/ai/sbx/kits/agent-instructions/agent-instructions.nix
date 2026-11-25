@@ -7,7 +7,7 @@
       capabilities = [
         {
           type = "com.docker.sandbox/agent-context@2";
-          config.content = builtins.readFile ../../../../system/settings/agents/AGENTS.md;
+          config.content = builtins.readFile ./AGENTS.md;
         }
       ];
     };

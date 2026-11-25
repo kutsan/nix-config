@@ -52,6 +52,8 @@ jobs:
             command: nix build .#checks.$CURRENT_SYSTEM.workflow-security --print-build-logs
           - name: Workflow Security Online
             command: nix run .#workflow-security-online
+          - name: XML Lint
+            command: nix build .#checks.$CURRENT_SYSTEM.xml-lint --print-build-logs
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
