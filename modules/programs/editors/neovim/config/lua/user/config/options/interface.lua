@@ -43,5 +43,3 @@ opt.shortmess = table.concat({ -- Shorten or hide messages.
 	'W', -- No "written" or "[w]" when writing a file.
 })
 opt.report = 1000 -- Report changed lines only when more than 1000 change.
-opt.guifont = 'MonoLisaCode,Symbols Nerd Font Mono:h17.5:#h-none' -- Font in GUI clients like Neovide, with Nerd Font symbols as fallback.
-opt.linespace = 11 -- Extra pixels between lines in GUI clients.
