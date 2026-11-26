@@ -5,6 +5,7 @@
       system-cli
 
       fonts
+      zed
     ];
 
     home-manager.sharedModules = [ inputs.self.modules.homeManager.system-desktop ];

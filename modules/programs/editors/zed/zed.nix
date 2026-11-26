@@ -5,12 +5,24 @@
       "zed"
     ];
 
-    home-manager.sharedModules = [ inputs.self.modules.homeManager.zed ];
+    home-manager.sharedModules = [
+      inputs.self.modules.homeManager.zed
+      { home.sessionVariables.GUI_EDITOR = "zed"; }
+    ];
   };
 
-  flake.modules.homeManager.zed = {
-    home.sessionVariables.GUI_EDITOR = "zed";
+  flake.modules.nixos.zed =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.zed-editor ];
 
+      home-manager.sharedModules = [
+        inputs.self.modules.homeManager.zed
+        { home.sessionVariables.GUI_EDITOR = "zeditor"; }
+      ];
+    };
+
+  flake.modules.homeManager.zed = {
     programs.zed-editor = {
       enable = true;
       package = null;
@@ -28,47 +40,26 @@
       themes.poisonbloom = inputs.poisonbloom.lib.themes.zed;
 
       userSettings = {
-        soft_wrap = "none";
-        show_wrap_guides = true;
         edit_predictions = {
           provider = "copilot";
         };
         use_system_prompts = false;
-        audio = {
-          "experimental.auto_microphone_volume" = true;
-        };
-        centered_layout = {
-          left_padding = null;
-        };
         tabs = {
           show_close_button = "hidden";
           show_diagnostics = "all";
           file_icons = true;
         };
-        buffer_font_weight = 400.0;
         restore_on_startup = "launchpad";
         calls = {
           mute_on_join = true;
         };
         cursor_blink = false;
-        minimap = {
-          show = "never";
-        };
         terminal = {
           option_as_meta = true;
           font_fallbacks = [
             "Symbols Nerd Font Mono"
           ];
           line_height = "comfortable";
-          toolbar = {
-            breadcrumbs = false;
-          };
-        };
-        git = {
-          git_gutter = "tracked_files";
-        };
-        scrollbar = {
-          git_diff = true;
         };
         show_signature_help_after_edits = true;
         title_bar = {
@@ -78,26 +69,12 @@
         buffer_line_height = {
           custom = 1.8;
         };
-        status_bar = {
-          active_language_button = true;
-        };
         project_panel = {
-          hide_hidden = false;
-          hide_root = false;
-          indent_guides = {
-            show = "always";
-          };
-          indent_size = 20.0;
-          git_status = true;
-          folder_icons = true;
-          file_icons = true;
           default_width = 300;
           dock = "left";
         };
         vim = {
           use_system_clipboard = "on_yank";
-          use_smartcase_find = false;
-          toggle_relative_line_numbers = false;
         };
         ui_font_family = "MonoLisaCode";
         buffer_font_family = "MonoLisaCode";
@@ -117,16 +94,15 @@
           ss13 = true;
           zero = true;
         };
+        auto_update = false;
         telemetry = {
           metrics = false;
           diagnostics = false;
         };
         vim_mode = true;
         icon_theme = "Symbols Icon Theme";
-        ui_font_size = 16.0;
         buffer_font_size = 16.0;
         theme = {
-          mode = "system";
           light = "Poisonbloom Light";
           dark = "Poisonbloom Dark";
         };
@@ -145,18 +121,12 @@
             provider = "copilot_chat";
             model = "claude-opus-4.5";
           };
-          favorite_models = [ ];
-          model_parameters = [ ];
           enable_feedback = false;
         };
         profiles = {
           Focus = {
             settings = {
-              ui_font_size = 16;
               buffer_font_size = 18;
-              buffer_line_height = {
-                custom = 1.8;
-              };
               tab_bar = {
                 show = false;
                 show_nav_history_buttons = false;
