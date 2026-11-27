@@ -425,7 +425,29 @@
         "personal-fonts": "personal-fonts",
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",
         "poisonbloom": "poisonbloom",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "zed-extensions": "zed-extensions"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "zed-extensions",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788077403,
+        "narHash": "sha256-c20YZQKzQ27qC6Wh729fWRTpI7oV4+7Ur4icKssD4Wc=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "89e26eeaafa88a2ede4778734acc794ff0299beb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -445,6 +467,27 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "zed-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1795526505,
+        "narHash": "sha256-g+C/is+XexDvy1BwbvYgo5hMr+pSrN0q09EU/TLbB8o=",
+        "owner": "SwornSystems",
+        "repo": "nix-zed-extensions",
+        "rev": "0ca9e9c917b649b074080fec0247c00ee77dd3cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SwornSystems",
+        "repo": "nix-zed-extensions",
         "type": "github"
       }
     }

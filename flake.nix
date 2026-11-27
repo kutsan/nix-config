@@ -51,6 +51,10 @@
       url = "github:kutsan/poisonbloom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zed-extensions = {
+      url = "github:SwornSystems/nix-zed-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
