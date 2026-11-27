@@ -16,6 +16,7 @@ in
       backblaze
       blender
       discord
+      goodlinks
       handbrake
       hyperduck
       ledger-wallet
@@ -23,6 +24,7 @@ in
       obs
       orcaslicer
       parachute-backup
+      tasks
       transmission
     ]);
   };

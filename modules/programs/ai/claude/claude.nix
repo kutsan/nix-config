@@ -17,12 +17,9 @@
     }:
     let
       settings = {
-        mcpServers = {
-          goodlinks = {
-            command = "/Applications/GoodLinks.app/Contents/MacOS/CLI/goodlinks";
-            args = [ "mcp-server" ];
-          };
-        };
+        mcpServers = lib.mapAttrs (
+          _: server: lib.hm.mcp.transformMcpServer { inherit server; }
+        ) config.programs.mcp.servers;
       };
     in
     {

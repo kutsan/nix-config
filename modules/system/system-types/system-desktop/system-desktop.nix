@@ -69,5 +69,7 @@
     imports = with inputs.self.modules.homeManager; [
       wallpapers
     ];
+
+    programs.mcp.enable = true;
   };
 }
