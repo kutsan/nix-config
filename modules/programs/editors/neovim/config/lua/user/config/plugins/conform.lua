@@ -15,6 +15,11 @@ local opts = {
 		python = { 'ruff_format' },
 		nix = { 'nixfmt' },
 	},
+	formatters = {
+		nixfmt = {
+			args = { '--filename', '$FILENAME', '-' },
+		},
+	},
 	format_on_save = {
 		timeout_ms = 500,
 		lsp_format = 'fallback',
