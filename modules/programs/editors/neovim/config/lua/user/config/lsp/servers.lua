@@ -1,6 +1,6 @@
 vim.lsp.enable({
 	-- JavaScript, TypeScript, CSS, HTML
-	'ts_ls',
+	'tsc',
 	'eslint',
 	'html',
 	'cssls',

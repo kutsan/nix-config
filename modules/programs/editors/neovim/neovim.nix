@@ -162,7 +162,7 @@ in
           oxfmt
           oxlint
           prettierd
-          typescript-language-server
+          typescript
           vscode-langservers-extracted
 
           # Shell
