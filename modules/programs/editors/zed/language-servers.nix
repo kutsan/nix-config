@@ -97,7 +97,7 @@
           };
 
           # C, C++
-          clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
+          clangd.binary.path = lib.getExe' pkgs.llvmPackages_latest.clang-tools "clangd";
 
           # Go
           gopls.binary = {
