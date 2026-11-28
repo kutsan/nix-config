@@ -34,6 +34,8 @@ jobs:
             command: nix build .#checks.$CURRENT_SYSTEM.lua-lint --print-build-logs
           - name: Lua Types
             command: nix build .#checks.$CURRENT_SYSTEM.lua-types --print-build-logs
+          - name: Markdown Lint
+            command: nix build .#checks.$CURRENT_SYSTEM.markdown-lint --print-build-logs
           - name: Nix Format
             command: nix build .#checks.$CURRENT_SYSTEM.nix-format --print-build-logs
           - name: Nix Lint
